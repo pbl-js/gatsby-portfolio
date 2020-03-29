@@ -1,36 +1,23 @@
 import { createGlobalStyle } from "styled-components"
 
 const GlobalStyle = createGlobalStyle`
-html {
-    box-sizing: border-box;
-  }
-
-  *,
-  *::before,
-  *::after {
-    box-sizing: inherit;
-  }
-
-  body {
-    margin: 0;
-    padding: 0;
-    font-family: 'Nunito';
-  }
-
-  button {
-    padding: 0;
-    cursor: pointer;
-    font-family: 'Nunito';
-  }
-
-  p {
-    font-size: 16px;
-  }
-
-  ul {
-    padding: 0;
-    margin: 0;
-  }
+*, *::before, *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+    html {
+        font-size: 62.5%;
+        /* Dzięki temu 1rem = 10px */
+        scroll-behavior: smooth;
+    }
+    body {
+        font-family: 'Nunito', sans-serif;
+        font-size: 1.6rem;
+        background-color: #07142C;
+        color: white;
+        /* Ale nadal bazową wielkością fontu jest 16px */
+    }
 `
 
 export default GlobalStyle

@@ -8,10 +8,7 @@ const MainLayout = ({ children }) => {
     <>
       <ThemeProvider theme={theme}>
         <GlobalStyle />
-        <div>
-          <h1>Layout</h1>
-          {children}
-        </div>
+        <div>{children}</div>
       </ThemeProvider>
     </>
   )
