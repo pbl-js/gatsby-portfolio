@@ -4,6 +4,7 @@ import { graphql } from "gatsby"
 import Header from "components/organisms/indexSections/Header"
 import AboutMe from "components/organisms/indexSections/AboutMe"
 import Skills from "components/organisms/indexSections/Skills"
+import Projects from "components/organisms/indexSections/Projects"
 
 const IndexPage = ({ data }) => {
   console.log(data)
@@ -12,6 +13,7 @@ const IndexPage = ({ data }) => {
       <Header image={data.file.childImageSharp.fluid} />
       <AboutMe />
       <Skills />
+      <Projects />
     </div>
   )
 }
