@@ -33,13 +33,14 @@ const StyledUl = styled.ul`
   }
 `
 
-const StyledA = styled.a`
+const StyledLi = styled.li`
   position: relative;
   margin-left: 50px;
   text-decoration: none;
   color: ${({ theme }) => theme.color.white};
   font-size: ${({ theme }) => theme.fontSize.l};
   font-weight: ${({ theme }) => theme.fontWeight.bold};
+  cursor: pointer;
 
   &::after {
     content: "";
@@ -71,29 +72,17 @@ const Navigation = ({ executeScroll, refs }) => {
     <StyledNav>
       <Hamburger />
       <StyledUl>
-        <li>
-          <StyledA href="#" onClick={() => executeScroll(refs.aboutMe)}>
-            O mnie
-          </StyledA>
-        </li>
+        <StyledLi onClick={() => executeScroll(refs.aboutMe)}>O mnie</StyledLi>
 
-        <li>
-          <StyledA href="#" onClick={() => executeScroll(refs.skills)}>
-            Umiejętności
-          </StyledA>
-        </li>
+        <StyledLi onClick={() => executeScroll(refs.skills)}>
+          Umiejętności
+        </StyledLi>
 
-        <li>
-          <StyledA href="#" onClick={() => executeScroll(refs.projects)}>
-            Projekty
-          </StyledA>
-        </li>
+        <StyledLi onClick={() => executeScroll(refs.projects)}>
+          Projekty
+        </StyledLi>
 
-        <li>
-          <StyledA href="#" onClick={() => executeScroll(refs.contact)}>
-            Kontakt
-          </StyledA>
-        </li>
+        <StyledLi onClick={() => executeScroll(refs.contact)}>Kontakt</StyledLi>
       </StyledUl>
     </StyledNav>
   )

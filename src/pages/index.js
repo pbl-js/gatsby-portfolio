@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useRef } from "react"
 import { graphql } from "gatsby"
 
 import Header from "components/organisms/indexSections/Header"
@@ -9,14 +9,31 @@ import Contact from "components/organisms/indexSections/Contact"
 import Footer from "components/organisms/indexSections/Footer"
 
 const IndexPage = ({ data }) => {
-  console.log(data)
+  const refs = {
+    aboutMe: useRef(null),
+    skills: useRef(null),
+    projects: useRef(null),
+    contact: useRef(null),
+  }
+
+  const scrollToRef = ref => {
+    window.scrollTo(0, ref.current.offsetTop)
+    // console.log(ref.current.offsetTop);
+  }
+
+  const executeScroll = ref => scrollToRef(ref)
+
   return (
     <div>
-      <Header image={data.file.childImageSharp.fluid} />
-      <AboutMe />
-      <Skills />
-      <Projects />
-      <Contact />
+      <Header
+        image={data.file.childImageSharp.fluid}
+        executeScroll={executeScroll}
+        refs={refs}
+      />
+      <AboutMe forwardedRef={refs.aboutMe} />
+      <Skills forwardedRef={refs.skills} />
+      <Projects forwardedRef={refs.projects} />
+      <Contact forwardedRef={refs.contact} />
       <Footer />
     </div>
   )
