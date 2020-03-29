@@ -1,12 +1,15 @@
 import React from "react"
-import Header from "components/organisms/indexSections/Header"
 import { graphql } from "gatsby"
+
+import Header from "components/organisms/indexSections/Header"
+import AboutMe from "components/organisms/indexSections/AboutMe"
 
 const IndexPage = ({ data }) => {
   console.log(data)
   return (
     <div>
       <Header image={data.file.childImageSharp.fluid} />
+      <AboutMe />
     </div>
   )
 }
