@@ -22,8 +22,8 @@ export const theme = {
     m: "2rem",
     l: "2.4rem",
     xl: "3.2rem",
-    xxl: "4.4rem", // H1(1440p)
-    xxxl: "6.8rem", // NameSurname (1440p)
+    xxl: "4rem", // H1(1440p)
+    xxxl: "6rem", // NameSurname (1440p)
   },
   device: {
     mobileS: `(max-width: 320px)`,

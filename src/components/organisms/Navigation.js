@@ -38,7 +38,7 @@ const StyledLi = styled.li`
   margin-left: 50px;
   text-decoration: none;
   color: ${({ theme }) => theme.color.white};
-  font-size: ${({ theme }) => theme.fontSize.l};
+  font-size: ${({ theme }) => theme.fontSize.m};
   font-weight: ${({ theme }) => theme.fontWeight.bold};
   cursor: pointer;
 

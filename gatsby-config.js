@@ -26,7 +26,7 @@ module.exports = {
       options: {
         fonts: [
           {
-            family: `Nunito`,
+            family: `Montserrat`,
             subsets: ["latin-ext"],
             variants: ["300", `400`, "600", "700", `900`],
           },

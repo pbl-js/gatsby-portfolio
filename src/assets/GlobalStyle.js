@@ -12,7 +12,7 @@ const GlobalStyle = createGlobalStyle`
         scroll-behavior: smooth;
     }
     body {
-        font-family: 'Nunito', sans-serif;
+        font-family: 'Montserrat', sans-serif;
         font-size: 1.6rem;
         background-color: #07142C;
         color: white;
