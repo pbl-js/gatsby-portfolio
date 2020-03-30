@@ -26,7 +26,7 @@ const StyledWrapper = styled.div`
 const StyledArticle = styled.article`
   width: 100%;
   display: grid;
-  grid-gap: 50px;
+  grid-gap: 150px;
 
   @media ${({ theme }) => theme.device.tablet} {
     grid-gap: 30px;
@@ -163,11 +163,22 @@ const Projects = ({ forwardedRef, projects }) => {
         </H1>
         <StyledArticle>
           {projects.edges.map(
-            ({
-              node: { id, title, photos, technologies, paragraph, description },
-            }) => (
+            (
+              {
+                node: {
+                  id,
+                  title,
+                  photos,
+                  technologies,
+                  paragraph,
+                  description,
+                },
+              },
+              index
+            ) => (
               <ProjectItem
                 key={id}
+                isEven={index % 2 === 0}
                 photos={photos}
                 title={title}
                 technologies={technologies}

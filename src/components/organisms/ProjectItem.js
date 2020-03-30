@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import styled from "styled-components"
+import styled, { css } from "styled-components"
 import Image from "gatsby-image"
 
 import H2 from "components/atoms/H2"
@@ -7,116 +7,59 @@ import H3 from "components/atoms/H3"
 import Paragraph from "components/atoms/Paragraph"
 import SmallButton from "components/atoms/SmallButton"
 
-const StyledSection = styled.section`
-  position: relative;
-  background-color: ${({ theme }) => theme.color.greySecondary};
-  padding: 20px;
-  display: grid;
-  grid-template-columns: 320px auto;
-  grid-gap: 20px;
-  transition: height 1s;
-
-  :hover {
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
-    cursor: pointer;
-  }
-
-  @media ${({ theme }) => theme.device.tablet} {
-    display: flex;
-    flex-direction: column;
-  }
-`
-
-const SectionLeftSide = styled.div`
-  display: flex;
-  flex-direction: column;
-
-  @media ${({ theme }) => theme.device.tablet} {
-    display: grid;
-    grid-template-columns: auto 1fr;
-    grid-gap: 20px;
-    margin-top: 43px;
-  }
-
-  @media ${({ theme }) => theme.device.mobileL} {
-    display: grid;
-    grid-template-columns: auto;
-    grid-template-rows: auto 1fr;
-    grid-gap: 20px;
-    margin-top: 43px;
-  }
-`
-
-const StyledH2 = styled(H2)`
-  @media ${({ theme }) => theme.device.tablet} {
-    position: absolute;
-    top: 20px;
-    left: 20px;
-  }
-`
-
-const ButtonWrapper = styled.div`
-  display: ${({ isOpen }) => (isOpen ? "grid" : "none")};
-  grid-gap: 10px;
-
-  @media ${({ theme }) => theme.device.tablet} {
-    display: grid;
-  }
-`
-
-const DescriptionButton = styled(SmallButton)`
-  display: none;
-
-  @media ${({ theme }) => theme.device.tablet} {
-    display: block;
-  }
-`
-
-const SectionRightSide = styled.div`
-  display: flex;
-  flex-direction: column;
-`
-
-const StyledParagraph = styled(Paragraph)`
-  margin-top: 10px;
-  margin-bottom: 20px;
-`
-
-const ProjectPhoto = styled(Image)`
-  width: 320px;
-  height: 180px;
-  margin-bottom: ${({ isOpen }) => isOpen && "20px"};
-
-  @media ${({ theme }) => theme.device.tablet} {
-    height: 100%;
-  }
-
-  @media ${({ theme }) => theme.device.mobileL} {
-    width: 100%;
-    height: auto;
-    margin-bottom: 0px;
-  }
-`
-
-const TechnologyWrapper = styled.ul`
+const MainWrapper = styled.section`
+  margin-top: 30px;
   width: 100%;
-  margin-top: 20px;
-  margin-bottom: 10px;
-  list-style: none;
-  display: flex;
-  flex-wrap: wrap;
+  height: 400px;
+  position: relative;
+  cursor: pointer;
+`
 
-  @media ${({ theme }) => theme.device.tablet} {
-    display: ${({ isOpen }) => (isOpen ? "flex" : "none")};
+const ContentWrapper = styled.div`
+  width: calc(50% + 50px);
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translate(30px, -30px);
+`
+
+const InnerContentWrapper = styled.div`
+  position: relative;
+  z-index: 20;
+  display: grid;
+  grid-gap: 30px;
+  padding: 30px;
+  padding-right: 110px;
+  background-color: ${({ theme }) => theme.color.greySecondary};
+
+  button {
+    width: 150px;
   }
 `
 
-const TechnologyItem = styled.li`
-  padding: 10px 20px;
-  margin-right: 10px;
-  margin-bottom: 10px;
-  background-color: rgba(0, 0, 0, 0.3);
-  font-size: ${({ theme }) => theme.fontSize.xs};
+const OrangeSpan = styled.span`
+  position: absolute;
+  z-index: 10;
+  bottom: -20px;
+  left: -20px;
+  width: calc(100% - 90px);
+  height: 100%;
+  background-color: ${({ theme }) => theme.color.orange};
+`
+
+const StyledImage = styled(Image)`
+  position: absolute !important;
+  right: 0;
+  top: 0;
+  z-index: 30;
+  width: 50%;
+  height: 100%;
+  filter: grayscale(100%);
+  transition: filter 0.3s;
+
+  ${MainWrapper}:hover & {
+    filter: grayscale(0%);
+  }
 `
 
 const ProjectItem = ({
@@ -125,62 +68,23 @@ const ProjectItem = ({
   paragraph,
   technologies,
   description,
+  isEven,
 }) => {
   const [isOpen, setIsOpen] = useState(false)
-
   return (
-    <StyledSection onClick={() => setIsOpen(!isOpen)}>
-      <SectionLeftSide>
-        <ProjectPhoto fluid={photos[0].fluid} isOpen={isOpen} />
+    <MainWrapper>
+      <ContentWrapper isEven={isEven}>
+        <InnerContentWrapper>
+          <H3>{title}</H3>
+          <Paragraph>{paragraph}</Paragraph>
+          <SmallButton secondary>Zobacz więcej</SmallButton>
+        </InnerContentWrapper>
 
-        <ButtonWrapper isOpen={isOpen}>
-          <SmallButton
-            as="a"
-            href="https://www.w3schools.com/html/"
-            onClick={e => {
-              e.stopPropagation()
-            }}
-          >
-            Wersja live
-          </SmallButton>
+        <OrangeSpan />
+      </ContentWrapper>
 
-          <SmallButton
-            secondary
-            as="a"
-            href="https://www.w3schools.com/html/"
-            onClick={e => {
-              e.stopPropagation()
-            }}
-          >
-            GitHub
-          </SmallButton>
-
-          <DescriptionButton secondary description>
-            Opis projektu
-          </DescriptionButton>
-        </ButtonWrapper>
-      </SectionLeftSide>
-
-      <SectionRightSide>
-        <StyledH2>{title}</StyledH2>
-
-        <TechnologyWrapper isOpen={isOpen}>
-          {technologies.map(item => (
-            <TechnologyItem key={item.id}>{item.technologyItem}</TechnologyItem>
-          ))}
-        </TechnologyWrapper>
-
-        <StyledParagraph>{paragraph}</StyledParagraph>
-
-        {isOpen &&
-          description.map(({ id, header, body }) => (
-            <div key={id}>
-              <H3>{header}</H3>
-              <StyledParagraph>{body}</StyledParagraph>
-            </div>
-          ))}
-      </SectionRightSide>
-    </StyledSection>
+      <StyledImage fluid={photos[0].fluid} isEven={isEven} />
+    </MainWrapper>
   )
 }
 
