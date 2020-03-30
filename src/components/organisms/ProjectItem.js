@@ -1,8 +1,9 @@
 import React, { useState } from "react"
 import styled, { css } from "styled-components"
 import Image from "gatsby-image"
+import { Link } from "gatsby"
+import slugify from "slugify"
 
-import H2 from "components/atoms/H2"
 import H3 from "components/atoms/H3"
 import Paragraph from "components/atoms/Paragraph"
 import SmallButton from "components/atoms/SmallButton"
@@ -22,6 +23,7 @@ const ContentWrapper = styled.div`
   top: 0;
   left: 0;
   transform: translate(30px, -30px);
+  color: white;
 
   ${({ isEven }) =>
     isEven &&
@@ -87,29 +89,25 @@ const StyledImage = styled(Image)`
     `}
 `
 
-const ProjectItem = ({
-  title,
-  photos,
-  paragraph,
-  technologies,
-  description,
-  isEven,
-}) => {
-  const [isOpen, setIsOpen] = useState(false)
+const ProjectItem = ({ title, photo, paragraph, isEven }) => {
+  const slug = slugify(title, { lower: true })
+
   return (
-    <MainWrapper isEven={isEven}>
-      <ContentWrapper isEven={isEven}>
-        <InnerContentWrapper isEven={isEven}>
-          <H3>{title}</H3>
-          <Paragraph>{paragraph}</Paragraph>
-          <SmallButton secondary>Zobacz więcej</SmallButton>
-        </InnerContentWrapper>
+    <Link to={`projects/${slug}`}>
+      <MainWrapper isEven={isEven}>
+        <ContentWrapper isEven={isEven}>
+          <InnerContentWrapper isEven={isEven}>
+            <H3>{title}</H3>
+            <Paragraph>{paragraph}</Paragraph>
+            <SmallButton secondary>Zobacz więcej</SmallButton>
+          </InnerContentWrapper>
 
-        <OrangeSpan isEven={isEven} />
-      </ContentWrapper>
+          <OrangeSpan isEven={isEven} />
+        </ContentWrapper>
 
-      <StyledImage fluid={photos[0].fluid} isEven={isEven} />
-    </MainWrapper>
+        <StyledImage fluid={photo} isEven={isEven} />
+      </MainWrapper>
+    </Link>
   )
 }
 

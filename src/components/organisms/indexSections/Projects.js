@@ -179,7 +179,7 @@ const Projects = ({ forwardedRef, projects }) => {
               <ProjectItem
                 key={id}
                 isEven={index % 2 === 0}
-                photos={photos}
+                photo={photos[0].fluid}
                 title={title}
                 technologies={technologies}
                 description={description}
