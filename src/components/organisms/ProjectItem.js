@@ -8,11 +8,12 @@ import Paragraph from "components/atoms/Paragraph"
 import SmallButton from "components/atoms/SmallButton"
 
 const MainWrapper = styled.section`
-  margin-top: 30px;
+  margin-top: ${({ isEven }) => (isEven ? "0px" : "30px")};
   width: 100%;
-  height: 400px;
   position: relative;
   cursor: pointer;
+  display: flex;
+  justify-content: ${({ isEven }) => (isEven ? "flex-start" : "flex-end")};
 `
 
 const ContentWrapper = styled.div`
@@ -21,6 +22,16 @@ const ContentWrapper = styled.div`
   top: 0;
   left: 0;
   transform: translate(30px, -30px);
+
+  ${({ isEven }) =>
+    isEven &&
+    css`
+      left: auto;
+      right: 0;
+      top: 50%;
+      transform: translate(0, -50%);
+      /* width: 50%; */
+    `}
 `
 
 const InnerContentWrapper = styled.div`
@@ -35,6 +46,13 @@ const InnerContentWrapper = styled.div`
   button {
     width: 150px;
   }
+
+  ${({ isEven }) =>
+    isEven &&
+    css`
+      padding-left: 80px;
+      padding-right: 30px;
+    `}
 `
 
 const OrangeSpan = styled.span`
@@ -43,23 +61,30 @@ const OrangeSpan = styled.span`
   bottom: -20px;
   left: -20px;
   width: calc(100% - 90px);
-  height: 100%;
+  height: ${({ isEven }) => (isEven ? "30%" : "100%")};
   background-color: ${({ theme }) => theme.color.orange};
 `
 
 const StyledImage = styled(Image)`
-  position: absolute !important;
+  /* position: absolute !important; */
   right: 0;
   top: 0;
   z-index: 30;
   width: 50%;
-  height: 100%;
+  /* height: 100%; */
+  max-height: 450px;
   filter: grayscale(100%);
   transition: filter 0.3s;
 
   ${MainWrapper}:hover & {
     filter: grayscale(0%);
   }
+
+  ${({ isEven }) =>
+    isEven &&
+    css`
+      left: 0;
+    `}
 `
 
 const ProjectItem = ({
@@ -72,15 +97,15 @@ const ProjectItem = ({
 }) => {
   const [isOpen, setIsOpen] = useState(false)
   return (
-    <MainWrapper>
+    <MainWrapper isEven={isEven}>
       <ContentWrapper isEven={isEven}>
-        <InnerContentWrapper>
+        <InnerContentWrapper isEven={isEven}>
           <H3>{title}</H3>
           <Paragraph>{paragraph}</Paragraph>
           <SmallButton secondary>Zobacz więcej</SmallButton>
         </InnerContentWrapper>
 
-        <OrangeSpan />
+        <OrangeSpan isEven={isEven} />
       </ContentWrapper>
 
       <StyledImage fluid={photos[0].fluid} isEven={isEven} />
