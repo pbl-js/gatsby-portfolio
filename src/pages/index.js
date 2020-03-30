@@ -15,12 +15,9 @@ const IndexPage = ({ data }) => {
     projects: useRef(null),
     contact: useRef(null),
   }
-
   const scrollToRef = ref => {
     window.scrollTo(0, ref.current.offsetTop)
-    // console.log(ref.current.offsetTop);
   }
-
   const executeScroll = ref => scrollToRef(ref)
 
   return (
@@ -30,9 +27,12 @@ const IndexPage = ({ data }) => {
         executeScroll={executeScroll}
         refs={refs}
       />
-      <AboutMe forwardedRef={refs.aboutMe} />
       <Skills forwardedRef={refs.skills} />
-      <Projects forwardedRef={refs.projects} />
+      <AboutMe forwardedRef={refs.aboutMe} />
+      <Projects
+        forwardedRef={refs.projects}
+        projects={data.allDatoCmsProject}
+      />
       <Contact forwardedRef={refs.contact} />
       <Footer />
     </div>
@@ -45,6 +45,29 @@ export const query = graphql`
       childImageSharp {
         fluid(maxHeight: 1440, maxWidth: 1045) {
           ...GatsbyImageSharpFluid_noBase64
+        }
+      }
+    }
+    allDatoCmsProject {
+      edges {
+        node {
+          id
+          title
+          paragraph
+          photos {
+            fluid(maxWidth: 600) {
+              ...GatsbyDatoCmsFluid
+            }
+          }
+          technologies {
+            id
+            technologyItem
+          }
+          description {
+            id
+            header
+            body
+          }
         }
       }
     }

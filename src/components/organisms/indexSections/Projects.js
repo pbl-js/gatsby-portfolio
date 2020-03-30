@@ -33,127 +33,128 @@ const StyledArticle = styled.article`
   }
 `
 
-const projectItems = [
-  {
-    title: "generator cv",
-    technologies: [
-      "react",
-      "styled-components",
-      "react-router",
-      "framer-motion",
-      "axios",
-      "firebase",
-      "express.js",
-      "MongoDB",
-    ],
-    description: [
-      {
-        title: "Założenia projektu",
-        body: `W programowaniu najbardziej lubię fakt, że jeden dobrze napisany
-        program jest w stanie wykonać pracę dziesiątek a nawet setek
-        ludzi. Pewien znany wizjoner technologi określił komputer „rowerem
-        dla umysłu”. Bardzo spodobało mi się to określenie.Dlatego, ucząc
-        się programowania...`,
-      },
-      {
-        title: "Użyte technologie",
-        body: `W programowaniu najbardziej lubię fakt, że jeden dobrze napisany
-        program jest w stanie wykonać pracę dziesiątek a nawet setek
-        ludzi. Pewien znany wizjoner technologi określił komputer „rowerem
-        dla umysłu”. Bardzo spodobało mi się to określenie.Dlatego, ucząc
-        się programowania...`,
-      },
-      {
-        title: "Napotkane problemy",
-        body: `W programowaniu najbardziej lubię fakt, że jeden dobrze napisany
-        program jest w stanie wykonać pracę dziesiątek a nawet setek
-        ludzi. Pewien znany wizjoner technologi określił komputer „rowerem
-        dla umysłu”. Bardzo spodobało mi się to określenie.Dlatego, ucząc
-        się programowania...`,
-      },
-    ],
-  },
-  {
-    title: "generator cv",
-    technologies: [
-      "react",
-      "styled-components",
-      "react-router",
-      "framer-motion",
-      "axios",
-      "firebase",
-      "express.js",
-      "MongoDB",
-    ],
-    description: [
-      {
-        title: "Założenia projektu",
-        body: `W programowaniu najbardziej lubię fakt, że jeden dobrze napisany
-        program jest w stanie wykonać pracę dziesiątek a nawet setek
-        ludzi. Pewien znany wizjoner technologi określił komputer „rowerem
-        dla umysłu”. Bardzo spodobało mi się to określenie.Dlatego, ucząc
-        się programowania...`,
-      },
-      {
-        title: "Użyte technologie",
-        body: `W programowaniu najbardziej lubię fakt, że jeden dobrze napisany
-        program jest w stanie wykonać pracę dziesiątek a nawet setek
-        ludzi. Pewien znany wizjoner technologi określił komputer „rowerem
-        dla umysłu”. Bardzo spodobało mi się to określenie.Dlatego, ucząc
-        się programowania...`,
-      },
-      {
-        title: "Napotkane problemy",
-        body: `W programowaniu najbardziej lubię fakt, że jeden dobrze napisany
-        program jest w stanie wykonać pracę dziesiątek a nawet setek
-        ludzi. Pewien znany wizjoner technologi określił komputer „rowerem
-        dla umysłu”. Bardzo spodobało mi się to określenie.Dlatego, ucząc
-        się programowania...`,
-      },
-    ],
-  },
-  {
-    title: "generator cv",
-    technologies: [
-      "react",
-      "styled-components",
-      "react-router",
-      "framer-motion",
-      "axios",
-      "firebase",
-      "express.js",
-      "MongoDB",
-    ],
-    description: [
-      {
-        title: "Założenia projektu",
-        body: `W programowaniu najbardziej lubię fakt, że jeden dobrze napisany
-        program jest w stanie wykonać pracę dziesiątek a nawet setek
-        ludzi. Pewien znany wizjoner technologi określił komputer „rowerem
-        dla umysłu”. Bardzo spodobało mi się to określenie.Dlatego, ucząc
-        się programowania...`,
-      },
-      {
-        title: "Użyte technologie",
-        body: `W programowaniu najbardziej lubię fakt, że jeden dobrze napisany
-        program jest w stanie wykonać pracę dziesiątek a nawet setek
-        ludzi. Pewien znany wizjoner technologi określił komputer „rowerem
-        dla umysłu”. Bardzo spodobało mi się to określenie.Dlatego, ucząc
-        się programowania...`,
-      },
-      {
-        title: "Napotkane problemy",
-        body: `W programowaniu najbardziej lubię fakt, że jeden dobrze napisany
-        program jest w stanie wykonać pracę dziesiątek a nawet setek
-        ludzi. Pewien znany wizjoner technologi określił komputer „rowerem
-        dla umysłu”. Bardzo spodobało mi się to określenie.Dlatego, ucząc
-        się programowania...`,
-      },
-    ],
-  },
-]
+// const projectItems = [
+//   {
+//     title: "generator cv",
+//     technologies: [
+//       "react",
+//       "styled-components",
+//       "react-router",
+//       "framer-motion",
+//       "axios",
+//       "firebase",
+//       "express.js",
+//       "MongoDB",
+//     ],
+//     description: [
+//       {
+//         title: "Założenia projektu",
+//         body: `W programowaniu najbardziej lubię fakt, że jeden dobrze napisany
+//         program jest w stanie wykonać pracę dziesiątek a nawet setek
+//         ludzi. Pewien znany wizjoner technologi określił komputer „rowerem
+//         dla umysłu”. Bardzo spodobało mi się to określenie.Dlatego, ucząc
+//         się programowania...`,
+//       },
+//       {
+//         title: "Użyte technologie",
+//         body: `W programowaniu najbardziej lubię fakt, że jeden dobrze napisany
+//         program jest w stanie wykonać pracę dziesiątek a nawet setek
+//         ludzi. Pewien znany wizjoner technologi określił komputer „rowerem
+//         dla umysłu”. Bardzo spodobało mi się to określenie.Dlatego, ucząc
+//         się programowania...`,
+//       },
+//       {
+//         title: "Napotkane problemy",
+//         body: `W programowaniu najbardziej lubię fakt, że jeden dobrze napisany
+//         program jest w stanie wykonać pracę dziesiątek a nawet setek
+//         ludzi. Pewien znany wizjoner technologi określił komputer „rowerem
+//         dla umysłu”. Bardzo spodobało mi się to określenie.Dlatego, ucząc
+//         się programowania...`,
+//       },
+//     ],
+//   },
+//   {
+//     title: "generator cv",
+//     technologies: [
+//       "react",
+//       "styled-components",
+//       "react-router",
+//       "framer-motion",
+//       "axios",
+//       "firebase",
+//       "express.js",
+//       "MongoDB",
+//     ],
+//     description: [
+//       {
+//         title: "Założenia projektu",
+//         body: `W programowaniu najbardziej lubię fakt, że jeden dobrze napisany
+//         program jest w stanie wykonać pracę dziesiątek a nawet setek
+//         ludzi. Pewien znany wizjoner technologi określił komputer „rowerem
+//         dla umysłu”. Bardzo spodobało mi się to określenie.Dlatego, ucząc
+//         się programowania...`,
+//       },
+//       {
+//         title: "Użyte technologie",
+//         body: `W programowaniu najbardziej lubię fakt, że jeden dobrze napisany
+//         program jest w stanie wykonać pracę dziesiątek a nawet setek
+//         ludzi. Pewien znany wizjoner technologi określił komputer „rowerem
+//         dla umysłu”. Bardzo spodobało mi się to określenie.Dlatego, ucząc
+//         się programowania...`,
+//       },
+//       {
+//         title: "Napotkane problemy",
+//         body: `W programowaniu najbardziej lubię fakt, że jeden dobrze napisany
+//         program jest w stanie wykonać pracę dziesiątek a nawet setek
+//         ludzi. Pewien znany wizjoner technologi określił komputer „rowerem
+//         dla umysłu”. Bardzo spodobało mi się to określenie.Dlatego, ucząc
+//         się programowania...`,
+//       },
+//     ],
+//   },
+//   {
+//     title: "generator cv",
+//     technologies: [
+//       "react",
+//       "styled-components",
+//       "react-router",
+//       "framer-motion",
+//       "axios",
+//       "firebase",
+//       "express.js",
+//       "MongoDB",
+//     ],
+//     description: [
+//       {
+//         title: "Założenia projektu",
+//         body: `W programowaniu najbardziej lubię fakt, że jeden dobrze napisany
+//         program jest w stanie wykonać pracę dziesiątek a nawet setek
+//         ludzi. Pewien znany wizjoner technologi określił komputer „rowerem
+//         dla umysłu”. Bardzo spodobało mi się to określenie.Dlatego, ucząc
+//         się programowania...`,
+//       },
+//       {
+//         title: "Użyte technologie",
+//         body: `W programowaniu najbardziej lubię fakt, że jeden dobrze napisany
+//         program jest w stanie wykonać pracę dziesiątek a nawet setek
+//         ludzi. Pewien znany wizjoner technologi określił komputer „rowerem
+//         dla umysłu”. Bardzo spodobało mi się to określenie.Dlatego, ucząc
+//         się programowania...`,
+//       },
+//       {
+//         title: "Napotkane problemy",
+//         body: `W programowaniu najbardziej lubię fakt, że jeden dobrze napisany
+//         program jest w stanie wykonać pracę dziesiątek a nawet setek
+//         ludzi. Pewien znany wizjoner technologi określił komputer „rowerem
+//         dla umysłu”. Bardzo spodobało mi się to określenie.Dlatego, ucząc
+//         się programowania...`,
+//       },
+//     ],
+//   },
+// ]
 
-const Projects = ({ forwardedRef }) => {
+const Projects = ({ forwardedRef, projects }) => {
+  console.log(projects)
   return (
     <BackgroundWrapper ref={forwardedRef}>
       <StyledWrapper>
@@ -161,13 +162,20 @@ const Projects = ({ forwardedRef }) => {
           <span>{"<"}</span> Projekty <span>{"/>"}</span>
         </H1>
         <StyledArticle>
-          {projectItems.map(({ title, technologies, description }) => (
-            <ProjectItem
-              title={title}
-              technologies={technologies}
-              description={description}
-            />
-          ))}
+          {projects.edges.map(
+            ({
+              node: { id, title, photos, technologies, paragraph, description },
+            }) => (
+              <ProjectItem
+                key={id}
+                photos={photos}
+                title={title}
+                technologies={technologies}
+                description={description}
+                paragraph={paragraph}
+              />
+            )
+          )}
         </StyledArticle>
       </StyledWrapper>
     </BackgroundWrapper>

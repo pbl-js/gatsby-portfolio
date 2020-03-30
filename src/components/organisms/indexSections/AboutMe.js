@@ -9,7 +9,6 @@ import Paragraph from "components/atoms/Paragraph"
 const BackgroundWrapper = styled.div`
   position: relative;
   width: 100%;
-  background-color: ${({ theme }) => theme.color.greyPrimary};
   overflow: hidden;
 `
 
@@ -100,8 +99,8 @@ const StyledSection = styled.section`
 
 const SectionBackground = styled.span`
   display: block;
-  background-color: black;
-  opacity: 0.3;
+  background-color: ${({ theme }) => theme.color.greyPrimary};
+  /* opacity: 0.3; */
   width: 200vw;
   height: 100%;
   position: absolute;

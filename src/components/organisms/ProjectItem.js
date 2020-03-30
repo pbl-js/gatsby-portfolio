@@ -1,18 +1,18 @@
 import React, { useState } from "react"
 import styled from "styled-components"
+import Image from "gatsby-image"
+
 import H2 from "components/atoms/H2"
 import H3 from "components/atoms/H3"
 import Paragraph from "components/atoms/Paragraph"
 import SmallButton from "components/atoms/SmallButton"
-
-import portfolio from "assets/images/portfolio.png"
 
 const StyledSection = styled.section`
   position: relative;
   background-color: ${({ theme }) => theme.color.greySecondary};
   padding: 20px;
   display: grid;
-  grid-template-columns: 250px auto;
+  grid-template-columns: 320px auto;
   grid-gap: 20px;
   transition: height 1s;
 
@@ -82,9 +82,9 @@ const StyledParagraph = styled(Paragraph)`
   margin-bottom: 20px;
 `
 
-const ProjectPhoto = styled.img`
-  width: 250px;
-  height: 160px;
+const ProjectPhoto = styled(Image)`
+  width: 320px;
+  height: 180px;
   margin-bottom: ${({ isOpen }) => isOpen && "20px"};
 
   @media ${({ theme }) => theme.device.tablet} {
@@ -119,13 +119,19 @@ const TechnologyItem = styled.li`
   font-size: ${({ theme }) => theme.fontSize.xs};
 `
 
-const ProjectItem = ({ title, technologies, description }) => {
+const ProjectItem = ({
+  title,
+  photos,
+  paragraph,
+  technologies,
+  description,
+}) => {
   const [isOpen, setIsOpen] = useState(false)
 
   return (
     <StyledSection onClick={() => setIsOpen(!isOpen)}>
       <SectionLeftSide>
-        <ProjectPhoto src={portfolio} alt="portfolio.png" isOpen={isOpen} />
+        <ProjectPhoto fluid={photos[0].fluid} isOpen={isOpen} />
 
         <ButtonWrapper isOpen={isOpen}>
           <SmallButton
@@ -160,16 +166,18 @@ const ProjectItem = ({ title, technologies, description }) => {
 
         <TechnologyWrapper isOpen={isOpen}>
           {technologies.map(item => (
-            <TechnologyItem>{item}</TechnologyItem>
+            <TechnologyItem key={item.id}>{item.technologyItem}</TechnologyItem>
           ))}
         </TechnologyWrapper>
 
+        <StyledParagraph>{paragraph}</StyledParagraph>
+
         {isOpen &&
-          description.map(({ title, body }) => (
-            <>
-              <H3>{title}</H3>
+          description.map(({ id, header, body }) => (
+            <div key={id}>
+              <H3>{header}</H3>
               <StyledParagraph>{body}</StyledParagraph>
-            </>
+            </div>
           ))}
       </SectionRightSide>
     </StyledSection>

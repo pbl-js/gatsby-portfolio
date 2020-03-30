@@ -8,6 +8,13 @@ import { ReactLogo } from "@styled-icons/fa-brands/ReactLogo"
 import { Nodejs } from "@styled-icons/boxicons-logos/Nodejs"
 import { Adobe } from "@styled-icons/boxicons-logos/Adobe"
 
+const BackgroundWrapper = styled.div`
+  position: relative;
+  width: 100%;
+  background-color: ${({ theme }) => theme.color.greyPrimary};
+  overflow: hidden;
+`
+
 const StyledWrapper = styled.div`
   width: 100%;
   max-width: 1440px;
@@ -86,65 +93,67 @@ const IconStyleWrapper = styled.div`
 
 const Skills = ({ forwardedRef }) => {
   return (
-    <StyledWrapper ref={forwardedRef}>
-      <StyledArticle>
-        <H1 orange center>
-          <span>{"<"}</span> Umiejętności <span>{"/>"}</span>
-        </H1>
+    <BackgroundWrapper>
+      <StyledWrapper ref={forwardedRef}>
+        <StyledArticle>
+          <H1 orange center>
+            <span>{"<"}</span> Umiejętności <span>{"/>"}</span>
+          </H1>
 
-        <SectionsWrapper>
-          <StyledSection primary>
-            <SectionHeaderWrapper>
-              <IconStyleWrapper>
-                <ReactLogo />
-              </IconStyleWrapper>
-              <H2>Frontend</H2>
-            </SectionHeaderWrapper>
+          <SectionsWrapper>
+            <StyledSection primary>
+              <SectionHeaderWrapper>
+                <IconStyleWrapper>
+                  <ReactLogo />
+                </IconStyleWrapper>
+                <H2>Frontend</H2>
+              </SectionHeaderWrapper>
 
-            <StyledUl primary>
-              <li>React | HOOKS</li>
-              <li>CSS | SASS | BEM</li>
-              <li>styled-components</li>
-              <li>Redux | redux-thunk</li>
-              <li>React router</li>
-              <li>Axios</li>
-            </StyledUl>
-          </StyledSection>
+              <StyledUl primary>
+                <li>React | HOOKS</li>
+                <li>CSS | SASS | BEM</li>
+                <li>styled-components</li>
+                <li>Redux | redux-thunk</li>
+                <li>React router</li>
+                <li>Axios</li>
+              </StyledUl>
+            </StyledSection>
 
-          <StyledSection>
-            <SectionHeaderWrapper>
-              <IconStyleWrapper>
-                <Nodejs />
-              </IconStyleWrapper>
-              <H2>Backend</H2>
-            </SectionHeaderWrapper>
+            <StyledSection>
+              <SectionHeaderWrapper>
+                <IconStyleWrapper>
+                  <Nodejs />
+                </IconStyleWrapper>
+                <H2>Backend</H2>
+              </SectionHeaderWrapper>
 
-            <StyledUl>
-              <li>Node.js</li>
-              <li>Express.js</li>
-              <li>MongoDB</li>
-              <li>Firebase</li>
-            </StyledUl>
-          </StyledSection>
+              <StyledUl>
+                <li>Node.js</li>
+                <li>Express.js</li>
+                <li>MongoDB</li>
+                <li>Firebase</li>
+              </StyledUl>
+            </StyledSection>
 
-          <StyledSection>
-            <SectionHeaderWrapper>
-              <IconStyleWrapper>
-                <Adobe />
-              </IconStyleWrapper>
-              <H2>Design</H2>
-            </SectionHeaderWrapper>
+            <StyledSection>
+              <SectionHeaderWrapper>
+                <IconStyleWrapper>
+                  <Adobe />
+                </IconStyleWrapper>
+                <H2>Design</H2>
+              </SectionHeaderWrapper>
 
-            <StyledUl>
-              <li>Figma</li>
-              <li>Photoshop</li>
-              <li>AfterEffects | animacja</li>
-              <li>Blender | 3D</li>
-            </StyledUl>
-          </StyledSection>
-        </SectionsWrapper>
-      </StyledArticle>
-    </StyledWrapper>
+              <StyledUl>
+                <li>Figma</li>
+                <li>Photoshop</li>
+                <li>AfterEffects | animacja</li>
+                <li>Blender | 3D</li>
+              </StyledUl>
+            </StyledSection>
+          </SectionsWrapper>
+        </StyledArticle>
+      </StyledWrapper>
+    </BackgroundWrapper>
   )
 }
 

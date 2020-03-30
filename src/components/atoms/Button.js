@@ -5,6 +5,7 @@ export default styled.button`
   padding: 20px 40px;
   /* border-radius: 10px; */
   font-size: ${({ theme }) => theme.fontSize.m};
+  font-weight: ${({ theme }) => theme.fontWeight.semiBold};
   color: ${({ theme, secondary }) =>
     secondary ? theme.color.orange : theme.color.white};
   background: ${({ theme, secondary }) =>
