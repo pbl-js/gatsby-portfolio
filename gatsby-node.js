@@ -25,7 +25,7 @@ exports.createPages = async ({ graphql, actions }) => {
     const slug = slugify(post.node.title, { lower: true })
 
     createPage({
-      path: `projects/${slug}`,
+      path: `/projects/${slug}`,
       component: projectTemplate,
       // Przekazujemy zmienna za pomocą  której będziemy odpytywać graphql w określonym poście
       context: {

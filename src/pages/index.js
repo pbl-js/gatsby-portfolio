@@ -1,11 +1,11 @@
 import React, { useRef } from "react"
 import { graphql } from "gatsby"
 
-import Header from "components/organisms/indexSections/Header"
-import AboutMe from "components/organisms/indexSections/AboutMe"
-import Skills from "components/organisms/indexSections/Skills"
-import Projects from "components/organisms/indexSections/Projects"
-import Contact from "components/organisms/indexSections/Contact"
+import Header from "components/organisms/indexSections/Header/Header"
+import AboutMe from "components/organisms/indexSections/AboutMe/AboutMe"
+import Skills from "components/organisms/indexSections/Skills/Skills"
+import Projects from "components/organisms/indexSections/Projects/Projects"
+import Contact from "components/organisms/indexSections/Contact/Contact"
 import Footer from "components/organisms/indexSections/Footer"
 
 const IndexPage = ({ data }) => {

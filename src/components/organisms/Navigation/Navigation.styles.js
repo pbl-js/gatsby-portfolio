@@ -1,8 +1,7 @@
-import React from "react"
 import styled from "styled-components"
 import { Menu } from "@styled-icons/entypo/Menu"
 
-const StyledNav = styled.nav`
+export const StyledNav = styled.nav`
   position: absolute;
   top: 50px;
   right: 50px;
@@ -14,7 +13,7 @@ const StyledNav = styled.nav`
   }
 `
 
-const Hamburger = styled(Menu)`
+export const Hamburger = styled(Menu)`
   width: 70px;
   display: none;
   cursor: pointer;
@@ -24,7 +23,7 @@ const Hamburger = styled(Menu)`
   }
 `
 
-const StyledUl = styled.ul`
+export const StyledUl = styled.ul`
   display: flex;
   list-style: none;
 
@@ -33,7 +32,7 @@ const StyledUl = styled.ul`
   }
 `
 
-const StyledLi = styled.li`
+export const StyledLi = styled.li`
   position: relative;
   margin-left: 50px;
   text-decoration: none;
@@ -66,26 +65,3 @@ const StyledLi = styled.li`
     font-size: ${({ theme }) => theme.fontSize.m};
   }
 `
-
-const Navigation = ({ executeScroll, refs }) => {
-  return (
-    <StyledNav>
-      <Hamburger />
-      <StyledUl>
-        <StyledLi onClick={() => executeScroll(refs.aboutMe)}>O mnie</StyledLi>
-
-        <StyledLi onClick={() => executeScroll(refs.skills)}>
-          Umiejętności
-        </StyledLi>
-
-        <StyledLi onClick={() => executeScroll(refs.projects)}>
-          Projekty
-        </StyledLi>
-
-        <StyledLi onClick={() => executeScroll(refs.contact)}>Kontakt</StyledLi>
-      </StyledUl>
-    </StyledNav>
-  )
-}
-
-export default Navigation

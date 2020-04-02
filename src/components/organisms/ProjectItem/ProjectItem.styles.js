@@ -1,14 +1,7 @@
-import React, { useState } from "react"
 import styled, { css } from "styled-components"
 import Image from "gatsby-image"
-import { Link } from "gatsby"
-import slugify from "slugify"
 
-import H3 from "components/atoms/H3"
-import Paragraph from "components/atoms/Paragraph"
-import SmallButton from "components/atoms/SmallButton"
-
-const MainWrapper = styled.section`
+export const MainWrapper = styled.section`
   margin-top: ${({ isEven }) => (isEven ? "0px" : "30px")};
   width: 100%;
   position: relative;
@@ -17,7 +10,7 @@ const MainWrapper = styled.section`
   justify-content: ${({ isEven }) => (isEven ? "flex-start" : "flex-end")};
 `
 
-const ContentWrapper = styled.div`
+export const ContentWrapper = styled.div`
   width: calc(50% + 50px);
   position: absolute;
   top: 0;
@@ -36,7 +29,7 @@ const ContentWrapper = styled.div`
     `}
 `
 
-const InnerContentWrapper = styled.div`
+export const InnerContentWrapper = styled.div`
   position: relative;
   z-index: 20;
   display: grid;
@@ -57,7 +50,7 @@ const InnerContentWrapper = styled.div`
     `}
 `
 
-const OrangeSpan = styled.span`
+export const OrangeSpan = styled.span`
   position: absolute;
   z-index: 10;
   bottom: -20px;
@@ -67,7 +60,7 @@ const OrangeSpan = styled.span`
   background-color: ${({ theme }) => theme.color.orange};
 `
 
-const StyledImage = styled(Image)`
+export const StyledImage = styled(Image)`
   /* position: absolute !important; */
   right: 0;
   top: 0;
@@ -88,27 +81,3 @@ const StyledImage = styled(Image)`
       left: 0;
     `}
 `
-
-const ProjectItem = ({ title, photo, paragraph, isEven }) => {
-  const slug = slugify(title, { lower: true })
-
-  return (
-    <Link to={`projects/${slug}`}>
-      <MainWrapper isEven={isEven}>
-        <ContentWrapper isEven={isEven}>
-          <InnerContentWrapper isEven={isEven}>
-            <H3>{title}</H3>
-            <Paragraph>{paragraph}</Paragraph>
-            <SmallButton secondary>Zobacz więcej</SmallButton>
-          </InnerContentWrapper>
-
-          <OrangeSpan isEven={isEven} />
-        </ContentWrapper>
-
-        <StyledImage fluid={photo} isEven={isEven} />
-      </MainWrapper>
-    </Link>
-  )
-}
-
-export default ProjectItem

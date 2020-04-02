@@ -1,5 +1,4 @@
 import React from "react"
-import Image from "gatsby-image"
 import { graphql } from "gatsby"
 
 //$slug: String! - wymagana zmienna
@@ -17,7 +16,6 @@ export const query = graphql`
 `
 
 const ProjectLayout = ({ data }) => {
-  console.log(data)
   return (
     <div>
       <h1>{data.allDatoCmsProject.edges[0].node.title}</h1>

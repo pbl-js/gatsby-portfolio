@@ -1,12 +1,7 @@
-import React from "react"
 import styled from "styled-components"
 import Image from "gatsby-image"
 
-import person from "assets/images/person.png"
-import Button from "components/atoms/Button"
-import Navigation from "components/organisms/Navigation"
-
-const StyledWrapper = styled.div`
+export const StyledWrapper = styled.div`
   height: 100vh;
   width: 100%;
   max-width: 1440px;
@@ -14,7 +9,7 @@ const StyledWrapper = styled.div`
   position: relative;
 `
 
-const OrangeDiv = styled.div`
+export const OrangeDiv = styled.div`
   position: absolute;
   width: 200vw;
   height: 100%;
@@ -39,7 +34,7 @@ const OrangeDiv = styled.div`
   }
 `
 
-const StyledImg = styled(Image)`
+export const StyledImg = styled(Image)`
   position: absolute !important;
   width: 60vh;
   right: 0;
@@ -60,7 +55,7 @@ const StyledImg = styled(Image)`
   }
 `
 
-const Container = styled.div`
+export const Container = styled.div`
   position: relative;
   display: flex;
   align-items: center;
@@ -87,13 +82,13 @@ const Container = styled.div`
   }
 `
 
-const InnerWrapper = styled.header`
+export const InnerWrapper = styled.header`
   display: flex;
   flex-direction: column;
   align-items: flex-end;
 `
 
-const ButtonWrapper = styled.div`
+export const ButtonWrapper = styled.div`
   display: grid;
   grid-template-columns: auto auto;
   grid-gap: 20px;
@@ -104,7 +99,7 @@ const ButtonWrapper = styled.div`
   }
 `
 
-const NameSurname = styled.h1`
+export const NameSurname = styled.h1`
   font-size: ${({ theme }) => theme.fontSize.xxxl};
   text-transform: uppercase;
   text-align: right;
@@ -116,7 +111,7 @@ const NameSurname = styled.h1`
   }
 `
 
-const JobTitle = styled.h2`
+export const JobTitle = styled.h2`
   font-size: ${({ theme }) => theme.fontSize.xxl};
   font-weight: ${({ theme }) => theme.fontWeight.regular};
   letter-spacing: 2px;
@@ -129,30 +124,3 @@ const JobTitle = styled.h2`
     font-size: ${({ theme }) => theme.fontSize.l};
   }
 `
-
-const Header = ({ executeScroll, refs, image }) => {
-  return (
-    <>
-      <StyledWrapper>
-        <OrangeDiv>
-          <StyledImg fluid={image} />
-        </OrangeDiv>
-        <Navigation refs={refs} executeScroll={executeScroll} />
-        <Container>
-          <InnerWrapper>
-            <NameSurname>paweł Miłczak</NameSurname>
-            <JobTitle>frontend developer</JobTitle>
-            <ButtonWrapper>
-              <Button secondary>Pobierz CV</Button>
-              <Button onClick={() => executeScroll(refs.projects)}>
-                Zobacz projekty
-              </Button>
-            </ButtonWrapper>
-          </InnerWrapper>
-        </Container>
-      </StyledWrapper>
-    </>
-  )
-}
-
-export default Header
