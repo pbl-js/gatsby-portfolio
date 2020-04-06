@@ -1,5 +1,5 @@
 import styled from "styled-components"
-import SmallButton from "components/atoms/SmallButton"
+import SmallButton from "components/reuse/SmallButton/SmallButton"
 
 export const StyledWrapper = styled.div`
   width: 100%;

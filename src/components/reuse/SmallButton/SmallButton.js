@@ -1,5 +1,5 @@
 import styled from "styled-components"
-import Button from "components/atoms/Button"
+import Button from "components/reuse/Button/Button"
 
 export default styled(Button)`
   width: 100%;

@@ -5,7 +5,7 @@ import {
   Hamburger,
   StyledUl,
   StyledLi,
-} from "components/organisms/Navigation/Navigation.styles.js"
+} from "components/Navigation/Navigation.styles.js"
 
 const Navigation = ({ executeScroll, refs }) => {
   return (

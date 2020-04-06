@@ -1,5 +1,5 @@
 import styled from "styled-components"
-import H2 from "components/atoms/H2"
+import H2 from "components/reuse/H2/H2"
 
 export const BackgroundWrapper = styled.div`
   position: relative;

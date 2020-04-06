@@ -1,7 +1,7 @@
 import React from "react"
 
-import Button from "components/atoms/Button"
-import Navigation from "components/organisms/Navigation/Navigation"
+import Button from "components/reuse/Button/Button"
+import Navigation from "components/Navigation/Navigation"
 import {
   StyledWrapper,
   OrangeDiv,
@@ -11,7 +11,7 @@ import {
   ButtonWrapper,
   NameSurname,
   JobTitle,
-} from "components/organisms/indexSections/Header/Header.styles.js"
+} from "components/indexSections/Header/Header.styles.js"
 
 const Header = ({ executeScroll, refs, image }) => {
   return (

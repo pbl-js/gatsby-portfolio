@@ -1,13 +1,13 @@
 import React from "react"
 
-import H1 from "components/atoms/H1"
+import H1 from "components/reuse/H1/H1"
 import {
   StyledWrapper,
   FormWrapper,
   StyledInput,
   StyledTextArea,
   StyledButton,
-} from "components/organisms/indexSections/Contact/Contact.styles.js"
+} from "components/indexSections/Contact/Contact.styles.js"
 
 const Contact = ({ forwardedRef }) => {
   // const [email, setEmail] = useState("")

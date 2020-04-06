@@ -1,12 +1,12 @@
 import React from "react"
 
-import H1 from "components/atoms/H1"
-import ProjectItem from "components/organisms/ProjectItem/ProjectItem"
+import H1 from "components/reuse/H1/H1"
+import ProjectItem from "components/reuse/ProjectItem/ProjectItem"
 import {
   BackgroundWrapper,
   StyledWrapper,
   StyledArticle,
-} from "components/organisms/indexSections/Projects/Projects.styles.js"
+} from "components/indexSections/Projects/Projects.styles.js"
 
 const Projects = ({ forwardedRef, projects }) => {
   return (

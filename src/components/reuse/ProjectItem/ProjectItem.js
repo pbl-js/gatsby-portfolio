@@ -2,9 +2,9 @@ import React from "react"
 import { Link } from "gatsby"
 import slugify from "slugify"
 
-import H3 from "components/atoms/H3"
-import Paragraph from "components/atoms/Paragraph"
-import SmallButton from "components/atoms/SmallButton"
+import H3 from "components/reuse/H3/H3"
+import Paragraph from "components/reuse/Paragraph/Paragraph"
+import SmallButton from "components/reuse/SmallButton/SmallButton"
 
 import {
   MainWrapper,
@@ -12,7 +12,7 @@ import {
   InnerContentWrapper,
   OrangeSpan,
   StyledImage,
-} from "components/organisms/ProjectItem/ProjectItem.styles.js"
+} from "components/reuse/ProjectItem/ProjectItem.styles.js"
 
 const ProjectItem = ({ title, photo, paragraph, isEven }) => {
   const slug = slugify(title, { lower: true })

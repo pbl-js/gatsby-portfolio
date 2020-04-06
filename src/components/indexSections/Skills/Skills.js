@@ -1,6 +1,6 @@
 import React from "react"
-import H1 from "components/atoms/H1"
-import H2 from "components/atoms/H2"
+import H1 from "components/reuse/H1/H1"
+import H2 from "components/reuse/H2/H2"
 
 import { ReactLogo } from "@styled-icons/fa-brands/ReactLogo"
 import { Nodejs } from "@styled-icons/boxicons-logos/Nodejs"
@@ -15,7 +15,7 @@ import {
   StyledUl,
   SectionHeaderWrapper,
   IconStyleWrapper,
-} from "components/organisms/indexSections/Skills/Skills.styles.js"
+} from "components/indexSections/Skills/Skills.styles.js"
 
 const Skills = ({ forwardedRef }) => {
   return (

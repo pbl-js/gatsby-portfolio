@@ -1,8 +1,8 @@
 import React from "react"
 
 import workingMan from "assets/images/workingMan.png"
-import H1 from "components/atoms/H1"
-import Paragraph from "components/atoms/Paragraph"
+import H1 from "components/reuse/H1/H1"
+import Paragraph from "components/reuse/Paragraph/Paragraph"
 import {
   BackgroundWrapper,
   MainWrapper,
@@ -13,7 +13,7 @@ import {
   StyledSection,
   SectionBackground,
   InnerSection,
-} from "components/organisms/indexSections/AboutMe/AboutMe.styles.js"
+} from "components/indexSections/AboutMe/AboutMe.styles.js"
 
 const Aboutme = ({ forwardedRef }) => {
   return (
