@@ -5,6 +5,7 @@ import slugify from "slugify"
 import H3 from "components/reuse/H3/H3"
 import Paragraph from "components/reuse/Paragraph/Paragraph"
 import SmallButton from "components/reuse/SmallButton/SmallButton"
+import TransitionCoverLink from "components/reuse/TransitionCoverLink/TransitionCoverLink"
 
 import {
   MainWrapper,
@@ -18,7 +19,7 @@ const ProjectItem = ({ title, photo, paragraph, isEven }) => {
   const slug = slugify(title, { lower: true })
 
   return (
-    <Link to={`/projects/${slug}`}>
+    <TransitionCoverLink length={0.8} delay={0.4} to={`/projects/${slug}`}>
       <MainWrapper isEven={isEven}>
         <ContentWrapper isEven={isEven}>
           <InnerContentWrapper isEven={isEven}>
@@ -32,7 +33,7 @@ const ProjectItem = ({ title, photo, paragraph, isEven }) => {
 
         <StyledImage fluid={photo} isEven={isEven} />
       </MainWrapper>
-    </Link>
+    </TransitionCoverLink>
   )
 }
 

@@ -34,9 +34,9 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-plugin-layout`,
+      resolve: "gatsby-plugin-transition-link",
       options: {
-        component: require.resolve(`./src/layouts/MainLayout`),
+        layout: require.resolve(`./src/layouts/MainLayout.js`),
       },
     },
     {
