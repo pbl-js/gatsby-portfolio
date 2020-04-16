@@ -28,11 +28,11 @@ const IndexPage = ({ data }) => {
         refs={refs}
       />
       <Skills forwardedRef={refs.skills} />
-      <AboutMe forwardedRef={refs.aboutMe} />
       <Projects
         forwardedRef={refs.projects}
         projects={data.allDatoCmsProject}
       />
+      <AboutMe forwardedRef={refs.aboutMe} />
       <Contact forwardedRef={refs.contact} />
       <Footer />
     </div>

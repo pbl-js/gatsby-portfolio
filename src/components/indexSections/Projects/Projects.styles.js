@@ -3,7 +3,7 @@ import styled from "styled-components"
 export const BackgroundWrapper = styled.div`
   position: relative;
   width: 100%;
-  background-color: ${({ theme }) => theme.color.greyPrimary};
+  background-color: ${({ theme }) => theme.color.navyBlue};
   overflow: hidden;
   padding: 150px 50px;
 
@@ -15,7 +15,6 @@ export const BackgroundWrapper = styled.div`
 export const StyledWrapper = styled.div`
   width: 100%;
   max-width: 1440px;
-  background-color: ${({ theme }) => theme.color.greyPrimary};
   margin: 0 auto;
   position: relative;
 `
