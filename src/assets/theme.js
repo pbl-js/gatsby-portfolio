@@ -31,7 +31,7 @@ export const theme = {
     mobileL: `(max-width: 540px)`,
     tablet: `(max-width: 768px)`,
     laptop: `(max-width: 1024px)`,
-    laptopL: `(max-width: 1440px)`,
+    laptopL: `(max-width: 1400px)`,
     desktop: `(max-width: 2560px)`,
   },
 }

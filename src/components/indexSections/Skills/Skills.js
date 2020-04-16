@@ -40,8 +40,9 @@ const Skills = ({ forwardedRef }) => {
                 <li>CSS | SASS | BEM</li>
                 <li>styled-components</li>
                 <li>Redux | redux-thunk</li>
-                <li>React router</li>
-                <li>Axios</li>
+                <li>SSR | Gatsby</li>
+                <li>GSAP | react-spring</li>
+                <li>gatsby-transition-link</li>
               </StyledUl>
             </StyledSection>
 
@@ -58,6 +59,7 @@ const Skills = ({ forwardedRef }) => {
                 <li>Express.js</li>
                 <li>MongoDB</li>
                 <li>Firebase</li>
+                <li>HeadlessCMS | DatoCMS</li>
               </StyledUl>
             </StyledSection>
 

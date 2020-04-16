@@ -36,14 +36,14 @@ export const OrangeDiv = styled.div`
 
 export const StyledImg = styled(Image)`
   position: absolute !important;
-  width: 60vh;
+  width: 55vh;
   right: 0;
   bottom: 0;
   z-index: 1;
   transform: translateX(40%);
 
   @media ${({ theme }) => theme.device.laptopL} {
-    width: 45vh;
+    width: 40vh;
   }
 
   @media ${({ theme }) => theme.device.laptop} {
