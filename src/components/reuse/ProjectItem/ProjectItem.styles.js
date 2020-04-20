@@ -5,28 +5,41 @@ export const MainWrapper = styled.section`
   width: 100%;
   cursor: pointer;
   display: flex;
+
+  @media ${({ theme }) => theme.device.tablet} {
+    flex-direction: column;
+  }
 `
 
 export const ContentWrapper = styled.div`
   position: relative;
   width: 45%;
   color: white;
+  transform: translateX(-30px);
 
   ${({ isEven }) =>
     isEven &&
     css`
       transform: translateX(30px);
     `}
+
+    @media ${({ theme }) => theme.device.tablet} {
+      width: 70%;
+      left: 50%;
+      margin-top: -20%;
+      transform: translateX(-50%);
+    } 
 `
 
 export const InnerContentWrapper = styled.div`
   position: relative;
   z-index: 20;
   top: 15%;
-  /* transform: translateY(-50%); */
   display: grid;
   grid-gap: 30px;
   padding: 30px;
+  padding-left: 60px;
+
   background-color: ${({ theme }) => theme.color.greySecondary};
 
   &::before {
@@ -34,7 +47,7 @@ export const InnerContentWrapper = styled.div`
     position: absolute;
     z-index: -1;
     height: 100%;
-    width: 100%;
+    width: 110%;
     display: block;
     background-color: ${({ theme }) => theme.color.greySecondary};
   }
@@ -46,12 +59,15 @@ export const InnerContentWrapper = styled.div`
   ${({ isEven }) =>
     isEven &&
     css`
-      width: 110%;
       top: 0;
-      transform: translateY(0%);
       padding-left: 30px;
-      padding-right: 110px;
+      padding-right: 60px;
     `}
+
+    @media ${({ theme }) => theme.device.tablet} {
+      padding-left: 30px;
+      padding-right: 30px;
+    } 
 `
 
 export const OrangeSpan = styled.span`
@@ -80,4 +96,10 @@ export const StyledImage = styled.div`
       order: 1;
       margin-top: 50px;
     `}
+
+    @media ${({ theme }) => theme.device.tablet} {
+      width: 100%;
+      order: 0;
+      z-index: 0;
+    }
 `
