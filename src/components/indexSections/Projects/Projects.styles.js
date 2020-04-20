@@ -24,7 +24,7 @@ export const StyledArticle = styled.article`
   display: grid;
   grid-gap: 150px;
 
-  @media ${({ theme }) => theme.device.tablet} {
+  /* @media ${({ theme }) => theme.device.tablet} {
     grid-gap: 30px;
-  }
+  } */
 `

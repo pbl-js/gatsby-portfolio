@@ -32,7 +32,7 @@ const Projects = ({ forwardedRef, projects }) => {
             ) => (
               <ProjectItem
                 key={id}
-                isEven={index % 2 === 0}
+                isEven={!(index % 2 === 0)}
                 photo={photos[0].fluid}
                 title={title}
                 technologies={technologies}
