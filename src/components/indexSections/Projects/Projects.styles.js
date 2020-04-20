@@ -5,11 +5,6 @@ export const BackgroundWrapper = styled.div`
   width: 100%;
   background-color: ${({ theme }) => theme.color.navyBlue};
   overflow: hidden;
-  padding: 150px 50px;
-
-  @media ${({ theme }) => theme.device.tablet} {
-    padding: 150px 30px;
-  }
 `
 
 export const StyledWrapper = styled.div`
@@ -17,6 +12,11 @@ export const StyledWrapper = styled.div`
   max-width: 1440px;
   margin: 0 auto;
   position: relative;
+  padding: 150px 50px;
+
+  @media ${({ theme }) => theme.device.tablet} {
+    padding: 150px 30px;
+  }
 `
 
 export const StyledArticle = styled.article`

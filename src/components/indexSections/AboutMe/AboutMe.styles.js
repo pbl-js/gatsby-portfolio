@@ -1,10 +1,12 @@
 import styled from "styled-components"
-import H2 from "components/reuse/H2/H2"
+
+import dots from "assets/images/dots.svg"
 
 export const BackgroundWrapper = styled.div`
   position: relative;
   width: 100%;
   overflow: hidden;
+  background-color: ${({ theme }) => theme.color.greyPrimary};
 `
 
 export const MainWrapper = styled.div`
@@ -12,106 +14,98 @@ export const MainWrapper = styled.div`
   max-width: 1440px;
   margin: 0 auto;
   position: relative;
-  display: flex;
-  flex-direction: column;
-`
-
-export const OrangeDiv = styled.div`
-  position: absolute;
-  width: 200vw;
-  height: 100%;
-  top: 0;
-  left: calc(100% - 500px);
-  background: ${({ theme }) => theme.color.orange};
-
-  @media ${({ theme }) => theme.device.laptopL} {
-    left: calc(100% - 280px);
-  }
-
-  @media ${({ theme }) => theme.device.laptop} {
-    left: calc(100% - 170px);
-  }
-
-  @media ${({ theme }) => theme.device.tablet} {
-    left: calc(100% - 80px);
-  }
-
-  @media ${({ theme }) => theme.device.mobileL} {
-    left: calc(100% - 40px);
-  }
-`
-
-export const StyledImg = styled.img`
-  position: absolute;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  max-height: 60%;
-  left: 0;
-  bottom: 0;
-  z-index: 1;
-
-  @media ${({ theme }) => theme.device.laptopL} {
-    max-height: 30%;
-  }
-
-  @media ${({ theme }) => theme.device.tablet} {
-    display: none;
-  }
 `
 
 export const StyledArticle = styled.article`
   padding: 150px 50px;
-  width: 60%;
+  width: 100%;
+  display: flex;
+`
 
-  @media ${({ theme }) => theme.device.laptopL} {
-    max-width: calc(100% - 280px);
+export const ContentWrapper = styled.div`
+  width: 55%;
+  padding-right: 100px;
+  margin: auto 0;
+  p {
+    margin-bottom: 40px;
   }
 
   @media ${({ theme }) => theme.device.laptop} {
-    max-width: calc(100% - 170px);
-  }
-
-  @media ${({ theme }) => theme.device.tablet} {
-    padding: 100px 30px;
     width: 100%;
-    max-width: calc(100% - 80px);
+    padding-right: 0;
   }
-
-  @media ${({ theme }) => theme.device.mobileL} {
-    max-width: calc(100% - 40px);
-  }
-`
-
-export const StyledH2 = styled(H2)`
-  margin-bottom: 20px;
 `
 
 export const StyledSection = styled.section`
   margin-bottom: 40px;
   position: relative;
-  max-width: 500px;
-`
 
-export const SectionBackground = styled.span`
-  display: block;
-  background-color: ${({ theme }) => theme.color.greyPrimary};
-  /* opacity: 0.3; */
-  width: 200vw;
-  height: 100%;
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  z-index: 0;
-  transform: translateX(30px);
-
-  @media ${({ theme }) => theme.device.tablet} {
-    transform: translateX(0px);
+  h2 {
+    margin-bottom: 20px;
   }
 `
 
-export const InnerSection = styled.div`
-  padding: 30px 0;
+export const Gallery = styled.div`
   position: relative;
-  margin-right: 30px;
-  z-index: 1;
+  width: 45%;
+  margin: auto 0;
+
+  @media ${({ theme }) => theme.device.laptop} {
+    display: none;
+  }
 `
+
+export const ImageWrapper = styled.div`
+  width: 60%;
+  margin-left: auto;
+
+  :nth-child(1) {
+    margin-right: 10%;
+    position: relative;
+
+    &::before {
+      position: absolute;
+      top: -30px;
+      right: -45px;
+      content: "";
+      display: block;
+      width: 120px;
+      height: 120px;
+      background-image: url(${dots});
+      background-repeat: no-repeat;
+      background-size: 100% 100%;
+      filter: invert(100%) sepia(100%) saturate(1%) hue-rotate(305deg)
+        brightness(103%) contrast(101%);
+    }
+  }
+
+  :nth-child(2) {
+    margin-top: -35%;
+    margin-right: 100%;
+  }
+
+  :nth-child(3) {
+    position: relative;
+    margin-top: -35%;
+  }
+
+  :nth-last-child(1) {
+    &::before {
+      position: absolute;
+      bottom: -30px;
+      left: -45px;
+      /* z-index: 5; */
+      content: "";
+      display: block;
+      width: 120px;
+      height: 120px;
+      background-image: url(${dots});
+      background-repeat: no-repeat;
+      background-size: 100% 100%;
+      filter: invert(68%) sepia(55%) saturate(488%) hue-rotate(3deg)
+        brightness(98%) contrast(93%);
+    }
+  }
+`
+// https://codepen.io/sosuke/pen/Pjoqqp - generator
+//           ? `invert(68%) sepia(55%) saturate(488%) hue-rotate(3deg) brightness(98%) contrast(93%);`

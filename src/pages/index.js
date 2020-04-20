@@ -32,7 +32,7 @@ const IndexPage = ({ data }) => {
         forwardedRef={refs.projects}
         projects={data.allDatoCmsProject}
       />
-      <AboutMe forwardedRef={refs.aboutMe} />
+      <AboutMe forwardedRef={refs.aboutMe} gallery={data.datoCmsGallery} />
       <Contact forwardedRef={refs.contact} />
       <Footer />
     </div>
@@ -48,6 +48,7 @@ export const query = graphql`
         }
       }
     }
+
     allDatoCmsProject {
       edges {
         node {
@@ -68,6 +69,15 @@ export const query = graphql`
             header
             body
           }
+        }
+      }
+    }
+
+    datoCmsGallery {
+      image {
+        originalId
+        fluid {
+          ...GatsbyDatoCmsFluid
         }
       }
     }

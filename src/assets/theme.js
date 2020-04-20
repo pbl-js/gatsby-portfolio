@@ -21,8 +21,8 @@ export const theme = {
     s: "1.8rem",
     m: "2rem",
     l: "2.4rem",
-    xl: "3.2rem",
-    xxl: "4rem", // H1(1440p)
+    xl: "3rem",
+    xxl: "3.6rem", // H1(1440p)
     xxxl: "6rem", // NameSurname (1440p)
   },
   device: {

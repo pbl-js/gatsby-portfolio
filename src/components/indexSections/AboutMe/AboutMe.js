@@ -1,34 +1,30 @@
 import React from "react"
+import Image from "gatsby-image"
 
-import workingMan from "assets/images/workingMan.png"
+import dots from "assets/images/dots.svg"
+
 import H1 from "components/reuse/H1/H1"
 import Paragraph from "components/reuse/Paragraph/Paragraph"
 import {
   BackgroundWrapper,
   MainWrapper,
-  OrangeDiv,
-  StyledImg,
+  ContentWrapper,
   StyledArticle,
-  StyledH2,
   StyledSection,
-  SectionBackground,
-  InnerSection,
+  Gallery,
+  ImageWrapper,
 } from "components/indexSections/AboutMe/AboutMe.styles.js"
 
-const Aboutme = ({ forwardedRef }) => {
+const Aboutme = ({ forwardedRef, gallery }) => {
   return (
     <BackgroundWrapper ref={forwardedRef}>
       <MainWrapper>
-        <OrangeDiv>
-          <StyledImg src={workingMan} />
-        </OrangeDiv>
-
         <StyledArticle>
-          <H1>
-            <span>{"<"}</span> Poznajmy się <span>{"/>"}</span>
-          </H1>
+          <ContentWrapper>
+            <H1>
+              <span>{"<"}</span> Poznajmy się <span>{"/>"}</span>
+            </H1>
 
-          <StyledSection>
             <Paragraph>
               W programowaniu najbardziej lubię fakt, że jeden dobrze napisany
               program jest w stanie wykonać pracę dziesiątek a nawet setek
@@ -40,11 +36,9 @@ const Aboutme = ({ forwardedRef }) => {
               określił komputer „rowerem dla umysłu”. Bardzo spodobało mi się to
               określenie.Dlatego, ucząc się programowania, robiłem to na
             </Paragraph>
-          </StyledSection>
 
-          <StyledSection>
-            <InnerSection>
-              <StyledH2>Dlaczego programowanie?</StyledH2>
+            <StyledSection>
+              <h2>Dlaczego programowanie?</h2>
 
               <Paragraph>
                 W programowaniu najbardziej lubię fakt, że jeden dobrze napisany
@@ -57,9 +51,18 @@ const Aboutme = ({ forwardedRef }) => {
                 określił komputer „rowerem dla umysłu”. Bardzo spodobało mi się
                 to określenie.Dlatego, ucząc się programowania, robiłem to na
               </Paragraph>
-            </InnerSection>
-            <SectionBackground />
-          </StyledSection>
+            </StyledSection>
+          </ContentWrapper>
+
+          <Gallery>
+            <>
+              {gallery.image.map(item => (
+                <ImageWrapper key={item.originalId}>
+                  <Image fluid={item.fluid} />
+                </ImageWrapper>
+              ))}
+            </>
+          </Gallery>
         </StyledArticle>
       </MainWrapper>
     </BackgroundWrapper>
