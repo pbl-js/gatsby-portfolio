@@ -15,6 +15,10 @@ import {
   AniSpan,
 } from "components/indexSections/Header/Header.styles.js"
 
+gsap.config({
+  nullTargetWarn: false,
+})
+
 const Header = ({ executeScroll, refs, image }) => {
   const nameRef = useRef(null)
   const positionRef = useRef(null)

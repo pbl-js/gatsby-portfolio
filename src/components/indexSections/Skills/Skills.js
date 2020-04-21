@@ -1,11 +1,13 @@
-import React from "react"
-import H1 from "components/reuse/H1/H1"
-import H2 from "components/reuse/H2/H2"
+import React, { useRef, useEffect, useState } from "react"
+import { useIntersection } from "react-use"
+import { gsap } from "gsap"
 
 import { ReactLogo } from "@styled-icons/fa-brands/ReactLogo"
 import { Nodejs } from "@styled-icons/boxicons-logos/Nodejs"
 import { Adobe } from "@styled-icons/boxicons-logos/Adobe"
 
+import H1 from "components/reuse/H1/H1"
+import H2 from "components/reuse/H2/H2"
 import {
   BackgroundWrapper,
   StyledWrapper,
@@ -15,18 +17,58 @@ import {
   StyledUl,
   SectionHeaderWrapper,
   IconStyleWrapper,
+  AniBackground,
 } from "components/indexSections/Skills/Skills.styles.js"
 
+const animation = (background, sections, header) => {
+  const tl = gsap.timeline({ defaults: { ease: "power3.inOut" } })
+
+  tl.fromTo(background.current, { x: "-100%" }, { duration: 0.5, x: "0%" })
+    .fromTo(background.current, { x: "0%" }, { duration: 0.5, x: "100%" })
+    .fromTo(
+      [header.current, ...sections],
+      { autoAlpha: 0 },
+      { autoAlpha: 1, stagger: 0.1 }
+    )
+}
+
 const Skills = ({ forwardedRef }) => {
+  const intersectionRef = useRef(null)
+  const background = useRef(null)
+  const sectionWrapperRef = useRef(null)
+  const header = useRef(null)
+
+  const [runed, setRuned] = useState(false)
+
+  const intersection = useIntersection(intersectionRef, {
+    root: null,
+    rootMargin: "0px",
+    threshold: 0.2,
+  })
+
+  useEffect(() => {
+    const sections = sectionWrapperRef.current.children
+
+    if (intersection && intersection.intersectionRatio > 0.2 && !runed) {
+      animation(background, sections, header)
+      setRuned(true)
+    }
+
+    if (!runed) {
+      gsap.set(background.current, { x: "-100%" })
+      gsap.set([sections, header.current], { autoAlpha: 0 })
+    }
+  })
+
   return (
-    <BackgroundWrapper>
+    <BackgroundWrapper ref={intersectionRef}>
       <StyledWrapper ref={forwardedRef}>
         <StyledArticle>
-          <H1 orange center>
+          <H1 orange center ref={header}>
             <span>{"<"}</span> Umiejętności <span>{"/>"}</span>
           </H1>
 
-          <SectionsWrapper>
+          <SectionsWrapper ref={sectionWrapperRef}>
             <StyledSection primary>
               <SectionHeaderWrapper>
                 <IconStyleWrapper>
@@ -81,6 +123,8 @@ const Skills = ({ forwardedRef }) => {
           </SectionsWrapper>
         </StyledArticle>
       </StyledWrapper>
+
+      <AniBackground ref={background} />
     </BackgroundWrapper>
   )
 }
