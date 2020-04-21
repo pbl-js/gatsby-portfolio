@@ -100,11 +100,13 @@ export const ButtonWrapper = styled.div`
 `
 
 export const NameSurname = styled.h1`
+  position: relative;
   font-size: ${({ theme }) => theme.fontSize.xxxl};
   text-transform: uppercase;
   text-align: right;
   color: ${({ theme }) => theme.color.orange};
   letter-spacing: 3px;
+  overflow: hidden;
 
   @media ${({ theme }) => theme.device.laptop} {
     font-size: ${({ theme }) => theme.fontSize.xxl};
@@ -112,6 +114,8 @@ export const NameSurname = styled.h1`
 `
 
 export const JobTitle = styled.h2`
+  position: relative;
+  overflow: hidden;
   font-size: ${({ theme }) => theme.fontSize.xxl};
   font-weight: ${({ theme }) => theme.fontWeight.regular};
   letter-spacing: 2px;
@@ -123,4 +127,14 @@ export const JobTitle = styled.h2`
   @media ${({ theme }) => theme.device.laptop} {
     font-size: ${({ theme }) => theme.fontSize.l};
   }
+`
+
+export const AniSpan = styled.span`
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-color: ${({ theme }) => theme.color.orange};
 `
