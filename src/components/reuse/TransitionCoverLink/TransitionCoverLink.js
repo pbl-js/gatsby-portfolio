@@ -40,6 +40,7 @@ const OrangeCoverLink = ({ children, to, delay, length }) => {
   return (
     <>
       <TransitionLink
+        style={{ textDecoration: "none" }}
         to={to}
         entry={{ delay: length / 2 }}
         exit={{

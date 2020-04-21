@@ -15,7 +15,7 @@ export const ContentWrapper = styled.div`
   position: relative;
   width: 45%;
   color: white;
-  transform: translateX(-30px);
+  transform: translateX(-60px);
 
   ${({ isEven }) =>
     isEven &&
@@ -38,8 +38,8 @@ export const InnerContentWrapper = styled.div`
   display: grid;
   grid-gap: 30px;
   padding: 30px;
-  padding-left: 60px;
-
+  padding-right: 30px;
+  padding-left: 90px;
   background-color: ${({ theme }) => theme.color.greySecondary};
 
   &::before {
