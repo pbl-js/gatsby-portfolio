@@ -28,7 +28,7 @@ const animation = (image, content, span) => {
   tl.fromTo(
     [image, content, span],
     { x: "-200px", autoAlpha: 0 },
-    { x: "0", autoAlpha: 1, duration: 0.7, stagger: 0.1 }
+    { x: "0", autoAlpha: 1, duration: 1, stagger: 0.1 }
   )
 }
 

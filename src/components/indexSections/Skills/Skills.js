@@ -21,7 +21,7 @@ import {
 } from "components/indexSections/Skills/Skills.styles.js"
 
 const animation = (background, sections, header) => {
-  const tl = gsap.timeline({ defaults: { ease: "power3.inOut" } })
+  const tl = gsap.timeline()
 
   tl.fromTo(background.current, { x: "-100%" }, { duration: 0.5, x: "0%" })
     .fromTo(background.current, { x: "0%" }, { duration: 0.5, x: "100%" })

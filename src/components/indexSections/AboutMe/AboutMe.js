@@ -1,7 +1,7 @@
-import React from "react"
+import React, { useRef, useEffect, useState } from "react"
 import Image from "gatsby-image"
-
-import dots from "assets/images/dots.svg"
+import { useIntersection } from "react-use"
+import { gsap } from "gsap"
 
 import H1 from "components/reuse/H1/H1"
 import Paragraph from "components/reuse/Paragraph/Paragraph"
@@ -13,14 +13,59 @@ import {
   StyledSection,
   Gallery,
   ImageWrapper,
+  AniBackground,
 } from "components/indexSections/AboutMe/AboutMe.styles.js"
 
+const animation = (background, sectionWrapper, galleryItems) => {
+  const tl = gsap.timeline()
+  console.log(galleryItems)
+
+  tl.fromTo(background, { x: "-100%" }, { duration: 0.5, x: "0%" })
+    .fromTo(background, { x: "0%" }, { duration: 0.5, x: "100%" })
+    .to(sectionWrapper, { autoAlpha: 1, x: 0, duration: 0.5 })
+    .to(
+      galleryItems,
+      { autoAlpha: 1, scale: 1, duration: 0.5, stagger: 0.1 },
+      1
+    )
+}
+
 const Aboutme = ({ forwardedRef, gallery }) => {
+  const intersectionRef = useRef(null)
+  const background = useRef(null)
+  const sectionWrapperRef = useRef(null)
+  const galleryRef = useRef(null)
+
+  const [runed, setRuned] = useState(false)
+
+  const intersection = useIntersection(intersectionRef, {
+    root: null,
+    rootMargin: "0px",
+    threshold: 0.5,
+  })
+
+  useEffect(() => {
+    if (intersection && intersection.intersectionRatio > 0.5 && !runed) {
+      animation(
+        background.current,
+        sectionWrapperRef.current,
+        galleryRef.current.children
+      )
+      setRuned(true)
+    }
+
+    if (!runed) {
+      gsap.set(background.current, { x: "-100%" })
+      gsap.set(sectionWrapperRef.current, { autoAlpha: 0, x: -100 })
+      gsap.set(galleryRef.current.children, { autoAlpha: 0, scale: 0.5 })
+    }
+  })
+
   return (
-    <BackgroundWrapper ref={forwardedRef}>
+    <BackgroundWrapper ref={forwardedRef} ref={intersectionRef}>
       <MainWrapper>
         <StyledArticle>
-          <ContentWrapper>
+          <ContentWrapper ref={sectionWrapperRef}>
             <H1>
               <span>{"<"}</span> Poznajmy się <span>{"/>"}</span>
             </H1>
@@ -54,7 +99,7 @@ const Aboutme = ({ forwardedRef, gallery }) => {
             </StyledSection>
           </ContentWrapper>
 
-          <Gallery>
+          <Gallery ref={galleryRef}>
             <>
               {gallery.image.map(item => (
                 <ImageWrapper key={item.originalId}>
@@ -65,6 +110,7 @@ const Aboutme = ({ forwardedRef, gallery }) => {
           </Gallery>
         </StyledArticle>
       </MainWrapper>
+      <AniBackground ref={background} />
     </BackgroundWrapper>
   )
 }
