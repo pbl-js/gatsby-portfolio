@@ -9,16 +9,6 @@ export const BackgroundWrapper = styled.div`
   overflow: hidden;
 `
 
-export const AniBackground = styled.span`
-  position: absolute;
-  top: 0;
-  left: 0;
-  display: block;
-  width: 100vw;
-  height: 100%;
-  background-color: ${({ theme }) => darken(0.03, theme.color.greyPrimary)};
-`
-
 export const StyledWrapper = styled.div`
   width: 100%;
   max-width: 1440px;
@@ -69,10 +59,11 @@ export const StyledSection = styled.section`
 export const StyledUl = styled.ul`
   margin-top: 20px;
   margin-left: 20px;
-  line-height: 230%;
+  line-height: 250%;
   font-size: ${({ theme }) => theme.fontSize.s};
   font-weight: ${({ theme }) => theme.fontWeight.regular};
   display: grid;
+  overflow: hidden;
 
   @media ${({ theme }) => theme.device.laptop} {
     grid-template-columns: auto auto;

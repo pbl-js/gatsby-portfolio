@@ -17,26 +17,40 @@ import {
   StyledUl,
   SectionHeaderWrapper,
   IconStyleWrapper,
-  AniBackground,
 } from "components/indexSections/Skills/Skills.styles.js"
 
-const animation = (background, sections, header) => {
-  const tl = gsap.timeline()
+const animation = (frontendLi, backendLi, designLi) => {
+  const duration = 0.5
+  const stagger = 0.1
 
-  tl.fromTo(background.current, { x: "-100%" }, { duration: 0.5, x: "0%" })
-    .fromTo(background.current, { x: "0%" }, { duration: 0.5, x: "100%" })
-    .fromTo(
-      [header.current, ...sections],
-      { autoAlpha: 0 },
-      { autoAlpha: 1, stagger: 0.1 }
-    )
+  gsap.to(frontendLi, {
+    autoAlpha: 1,
+    x: 0,
+    duration: duration,
+    stagger: stagger,
+  })
+
+  gsap.to(backendLi, {
+    autoAlpha: 1,
+    x: 0,
+    duration: duration,
+    stagger: stagger,
+  })
+
+  gsap.to(designLi, {
+    autoAlpha: 1,
+    x: 0,
+    duration: duration,
+    stagger: stagger,
+  })
 }
 
 const Skills = ({ forwardedRef }) => {
   const intersectionRef = useRef(null)
-  const background = useRef(null)
-  const sectionWrapperRef = useRef(null)
-  const header = useRef(null)
+
+  const frontendUlRef = useRef(null)
+  const backendUlRef = useRef(null)
+  const designUlRef = useRef(null)
 
   const [runed, setRuned] = useState(false)
 
@@ -47,16 +61,20 @@ const Skills = ({ forwardedRef }) => {
   })
 
   useEffect(() => {
-    const sections = sectionWrapperRef.current.children
+    const frontendLi = frontendUlRef.current.children
+    const backendLi = backendUlRef.current.children
+    const designLi = designUlRef.current.children
 
     if (intersection && intersection.intersectionRatio > 0.2 && !runed) {
-      animation(background, sections, header)
+      animation(frontendLi, backendLi, designLi)
       setRuned(true)
     }
 
     if (!runed) {
-      gsap.set(background.current, { x: "-100%" })
-      gsap.set([sections, header.current], { autoAlpha: 0 })
+      gsap.set([frontendLi, backendLi, designLi], {
+        autoAlpha: "0",
+        x: "-100%",
+      })
     }
   })
 
@@ -64,11 +82,11 @@ const Skills = ({ forwardedRef }) => {
     <BackgroundWrapper ref={intersectionRef}>
       <StyledWrapper ref={forwardedRef}>
         <StyledArticle>
-          <H1 orange center ref={header}>
+          <H1 orange center>
             <span>{"<"}</span> Umiejętności <span>{"/>"}</span>
           </H1>
 
-          <SectionsWrapper ref={sectionWrapperRef}>
+          <SectionsWrapper>
             <StyledSection primary>
               <SectionHeaderWrapper>
                 <IconStyleWrapper>
@@ -77,7 +95,7 @@ const Skills = ({ forwardedRef }) => {
                 <H2>Frontend</H2>
               </SectionHeaderWrapper>
 
-              <StyledUl primary>
+              <StyledUl primary ref={frontendUlRef}>
                 <li>React | HOOKS</li>
                 <li>CSS | SASS | BEM</li>
                 <li>styled-components</li>
@@ -96,7 +114,7 @@ const Skills = ({ forwardedRef }) => {
                 <H2>Backend</H2>
               </SectionHeaderWrapper>
 
-              <StyledUl>
+              <StyledUl ref={backendUlRef}>
                 <li>Node.js</li>
                 <li>Express.js</li>
                 <li>MongoDB</li>
@@ -113,7 +131,7 @@ const Skills = ({ forwardedRef }) => {
                 <H2>Design</H2>
               </SectionHeaderWrapper>
 
-              <StyledUl>
+              <StyledUl ref={designUlRef}>
                 <li>Figma</li>
                 <li>Photoshop</li>
                 <li>AfterEffects | animacja</li>
@@ -123,8 +141,6 @@ const Skills = ({ forwardedRef }) => {
           </SectionsWrapper>
         </StyledArticle>
       </StyledWrapper>
-
-      <AniBackground ref={background} />
     </BackgroundWrapper>
   )
 }
