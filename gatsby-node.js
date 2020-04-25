@@ -4,7 +4,7 @@ const slugify = require("slugify")
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
 
-  const projectTemplate = path.resolve(`src/layouts/ProjectLayout.js`)
+  const projectTemplate = path.resolve(`src/genPages/Project/Project.js`)
 
   const result = await graphql(`
     query queryProjects {

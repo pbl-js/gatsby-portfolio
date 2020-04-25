@@ -16,7 +16,7 @@ export const theme = {
     black: 900,
   },
   fontSize: {
-    xxs: "1rem",
+    xxs: "1.2rem",
     xs: "1.4rem", // Paragraph
     s: "1.8rem",
     m: "2rem",
