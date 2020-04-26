@@ -42,16 +42,6 @@ export const InnerContentWrapper = styled.div`
   padding-left: 90px;
   background-color: ${({ theme }) => theme.color.greySecondary};
 
-  &::before {
-    content: "";
-    position: absolute;
-    z-index: -1;
-    height: 100%;
-    width: 110%;
-    display: block;
-    background-color: ${({ theme }) => theme.color.greySecondary};
-  }
-
   button {
     width: 150px;
   }
@@ -72,7 +62,7 @@ export const InnerContentWrapper = styled.div`
 
 export const OrangeSpan = styled.span`
   position: absolute;
-  z-index: -2;
+  z-index: 10;
   height: 100%;
   width: 80%;
   top: 30px;

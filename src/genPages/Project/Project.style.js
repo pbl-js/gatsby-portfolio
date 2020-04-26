@@ -63,7 +63,8 @@ export const Gallery = styled.div`
   margin-right: 30%;
   width: calc(100% - 450px);
   display: grid;
-  grid-gap: 20px;
+  grid-gap: 50px;
+  padding: 50px;
 
   @media ${({ theme }) => theme.device.laptop} {
     display: none;
