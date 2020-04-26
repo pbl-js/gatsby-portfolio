@@ -73,14 +73,16 @@ export const CircleButton = styled(SmallButton)`
   width: 40px;
   height: 40px;
   padding: 0;
-  border-radius: 100%;
+  border-radius: ${({ disable }) => (disable ? 0 : "100%")};
   border: 0;
+  cursor: ${({ disable }) => (disable ? "auto " : "pointer")};
 
   :hover {
-    background-color: ${({ theme, secondary }) =>
-      secondary && theme.color.greySecondary};
+    background-color: ${({ theme, secondary, disable }) =>
+      secondary && (disable ? "transparent" : theme.color.greySecondary)};
     svg {
-      color: ${({ theme }) => theme.color.white};
+      color: ${({ theme, disable }) =>
+        disable ? theme.color.greyTertiary : theme.color.white};
     }
   }
 

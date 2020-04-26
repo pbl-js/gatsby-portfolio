@@ -4,6 +4,7 @@ import { gsap } from "gsap"
 import Button from "components/reuse/Button/Button"
 import Navigation from "components/Navigation/Navigation"
 import {
+  BackgroundWrapper,
   StyledWrapper,
   OrangeDiv,
   StyledImg,
@@ -62,7 +63,7 @@ const Header = ({ executeScroll, refs, image }) => {
   }, [])
 
   return (
-    <>
+    <BackgroundWrapper>
       <StyledWrapper>
         <OrangeDiv>
           <StyledImg fluid={image} />
@@ -91,7 +92,7 @@ const Header = ({ executeScroll, refs, image }) => {
           </InnerWrapper>
         </Container>
       </StyledWrapper>
-    </>
+    </BackgroundWrapper>
   )
 }
 

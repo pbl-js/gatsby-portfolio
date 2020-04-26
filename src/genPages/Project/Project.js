@@ -1,6 +1,8 @@
-import React from "react"
+import React, { useEffect } from "react"
 import { graphql } from "gatsby"
 import Image from "gatsby-image"
+import slugify from "slugify"
+import { Link } from "gatsby"
 
 import { Home } from "@styled-icons/entypo/Home"
 import { LeftArrow } from "@styled-icons/boxicons-solid/LeftArrow"
@@ -26,21 +28,25 @@ import {
 //$slug: String! - wymagana zmienna
 export const query = graphql`
   query querySingleArticle($projectId: String!) {
-    allDatoCmsProject(filter: { id: { eq: $projectId } }) {
+    datoCmsProject(id: { eq: $projectId }) {
+      title
+      paragraph
+      photos {
+        originalId
+        fluid(maxWidth: 1200) {
+          ...GatsbyDatoCmsFluid
+        }
+      }
+      technologies {
+        id
+        technologyItem
+      }
+    }
+
+    allDatoCmsProject {
       edges {
         node {
           title
-          paragraph
-          photos {
-            originalId
-            fluid(maxWidth: 1200) {
-              ...GatsbyDatoCmsFluid
-            }
-          }
-          technologies {
-            id
-            technologyItem
-          }
         }
       }
     }
@@ -48,30 +54,52 @@ export const query = graphql`
 `
 
 const ProjectLayout = ({ data }) => {
-  const cmsData = data.allDatoCmsProject.edges[0].node
+  const cmsData = data.datoCmsProject
+  const links = data.allDatoCmsProject.edges.map(({ node: { title } }) => {
+    return slugify(title, { lower: true })
+  })
+  const actualLink = links.indexOf(slugify(cmsData.title, { lower: true }))
+
+  const canNext = actualLink === links.length - 1 ? true : false
+  const canBack = actualLink === 0 ? true : false
+
   return (
     <>
       <Sidebar>
         <ContentGrid>
           <NavigationWrapper>
-            <TransitionCoverLink
-              length={1}
-              delay={0.5}
-              to={`/projects/timer-pomodoro`}
-            >
+            <TransitionCoverLink length={1} delay={0} to="/">
               <CircleButton>
                 <Home />
               </CircleButton>
             </TransitionCoverLink>
 
             <div>
-              <CircleButton secondary>
-                <LeftArrow />
-              </CircleButton>
-              1/4
-              <CircleButton secondary>
-                <RightArrow />
-              </CircleButton>
+              <Link
+                to={
+                  canBack
+                    ? `/projects/${links[actualLink]}`
+                    : `/projects/${links[actualLink - 1]}`
+                }
+              >
+                <CircleButton secondary disable={canBack}>
+                  <LeftArrow />
+                </CircleButton>
+              </Link>
+
+              {`${actualLink + 1} / ${links.length}`}
+
+              <Link
+                to={
+                  canNext
+                    ? `/projects/${links[actualLink]}`
+                    : `/projects/${links[actualLink + 1]}`
+                }
+              >
+                <CircleButton secondary disable={canNext}>
+                  <RightArrow />
+                </CircleButton>
+              </Link>
             </div>
           </NavigationWrapper>
 
@@ -95,8 +123,7 @@ const ProjectLayout = ({ data }) => {
 
       <Gallery>
         {cmsData.photos.map(item => (
-          <Image fluid={item.fluid} />
-          //   <p>{item.originalId}</p>
+          <Image fluid={item.fluid} key={item.originalId} />
         ))}
       </Gallery>
     </>

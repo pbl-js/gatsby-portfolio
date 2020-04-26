@@ -1,6 +1,13 @@
 import styled from "styled-components"
 import Image from "gatsby-image"
 
+export const BackgroundWrapper = styled.div`
+  position: relative;
+  width: 100%;
+  background-color: ${({ theme }) => theme.color.navyBlue};
+  overflow: hidden;
+`
+
 export const StyledWrapper = styled.div`
   height: 100vh;
   width: 100%;
