@@ -13,11 +13,50 @@ export const StyledWrapper = styled.div`
   }
 `
 
+export const Container = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 150px;
+
+  @media ${({ theme }) => theme.device.laptop} {
+    grid-template-columns: 1fr;
+    grid-gap: 30px;
+  }
+`
+
+export const InnerContainer = styled.div`
+  display: grid;
+  grid-template-rows: auto auto auto auto 1fr;
+  grid-gap: 50px;
+  h1 {
+    margin-bottom: 0;
+  }
+`
+
+export const ContactWrapper = styled.div`
+  font-size: ${({ theme }) => theme.fontSize.s};
+  font-size: ${({ theme }) => theme.fontWeight.semiBold};
+
+  a {
+    color: white;
+    text-decoration: none;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  svg {
+    color: ${({ theme }) => theme.color.orange};
+    width: 40px;
+    margin-right: 20px;
+  }
+`
+
 export const FormWrapper = styled.form`
   position: relative;
   z-index: 1;
   min-height: 400px;
-  max-width: 650px;
+  width: 100%;
   margin: 0 auto;
   padding: 40px;
   background-color: ${({ theme }) => theme.color.greySecondary};
