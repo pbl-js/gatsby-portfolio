@@ -26,14 +26,19 @@ const IndexPage = ({ data }) => {
         image={data.file.childImageSharp.fluid}
         executeScroll={executeScroll}
         refs={refs}
+        cv={data.datoCmsBasic.cv.url}
       />
-      <Skills forwardedRef={refs.skills} />
+      <Skills forwardedRef={refs.skills} skills={data.allDatoCmsSkill.edges} />
       <Projects
         forwardedRef={refs.projects}
         projects={data.allDatoCmsProject}
       />
-      <AboutMe forwardedRef={refs.aboutMe} gallery={data.datoCmsGallery} />
-      <Contact forwardedRef={refs.contact} />
+      {/* <AboutMe
+        forwardedRef={refs.aboutMe}
+        gallery={data.datoCmsGallery}
+        aboutMe={data.datoCmsAboutMe}
+      /> */}
+      <Contact forwardedRef={refs.contact} contacts={data.datoCmsBasic} />
       <Footer />
     </div>
   )
@@ -45,6 +50,28 @@ export const query = graphql`
       childImageSharp {
         fluid(maxHeight: 1440, maxWidth: 1045) {
           ...GatsbyImageSharpFluid_noBase64
+        }
+      }
+    }
+
+    datoCmsBasic {
+      email
+      github
+      phone
+      cv {
+        url
+      }
+    }
+
+    allDatoCmsSkill {
+      edges {
+        node {
+          id
+          header
+          skillList {
+            id
+            title
+          }
         }
       }
     }
@@ -64,18 +91,17 @@ export const query = graphql`
             id
             technologyItem
           }
-          description {
-            id
-            header
-            body
-          }
         }
       }
     }
 
-    datoCmsGallery {
-      image {
-        originalId
+    datoCmsAboutMe {
+      paragraph
+      textBlock {
+        header
+        paragraph
+      }
+      gallery {
         fluid {
           ...GatsbyDatoCmsFluid
         }

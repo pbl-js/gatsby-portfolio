@@ -45,7 +45,7 @@ const animation = (frontendLi, backendLi, designLi) => {
   })
 }
 
-const Skills = ({ forwardedRef }) => {
+const Skills = ({ forwardedRef, skills }) => {
   const intersectionRef = useRef(null)
 
   const frontendUlRef = useRef(null)
@@ -78,6 +78,19 @@ const Skills = ({ forwardedRef }) => {
     }
   })
 
+  // CMS data
+  const [frontendSkills] = skills.filter(
+    item => item.node.header.toLowerCase() === "frontend"
+  )
+
+  const [backendSkills] = skills.filter(
+    item => item.node.header.toLowerCase() === "backend"
+  )
+
+  const [designSkills] = skills.filter(
+    item => item.node.header.toLowerCase() === "design"
+  )
+
   return (
     <BackgroundWrapper ref={intersectionRef}>
       <StyledWrapper ref={forwardedRef}>
@@ -92,17 +105,13 @@ const Skills = ({ forwardedRef }) => {
                 <IconStyleWrapper>
                   <ReactLogo />
                 </IconStyleWrapper>
-                <H2>Frontend</H2>
+                <H2>{frontendSkills.node.header}</H2>
               </SectionHeaderWrapper>
 
               <StyledUl primary ref={frontendUlRef}>
-                <li>React | HOOKS</li>
-                <li>CSS | SASS | BEM</li>
-                <li>styled-components</li>
-                <li>Redux | redux-thunk</li>
-                <li>SSR | Gatsby</li>
-                <li>GSAP | react-spring</li>
-                <li>gatsby-transition-link</li>
+                {frontendSkills.node.skillList.map(skill => (
+                  <li key={skill.id}>{skill.title}</li>
+                ))}
               </StyledUl>
             </StyledSection>
 
@@ -111,15 +120,13 @@ const Skills = ({ forwardedRef }) => {
                 <IconStyleWrapper>
                   <Nodejs />
                 </IconStyleWrapper>
-                <H2>Backend</H2>
+                <H2>{backendSkills.node.header}</H2>
               </SectionHeaderWrapper>
 
               <StyledUl ref={backendUlRef}>
-                <li>Node.js</li>
-                <li>Express.js</li>
-                <li>MongoDB</li>
-                <li>Firebase</li>
-                <li>HeadlessCMS | DatoCMS</li>
+                {backendSkills.node.skillList.map(skill => (
+                  <li key={skill.id}>{skill.title}</li>
+                ))}
               </StyledUl>
             </StyledSection>
 
@@ -128,14 +135,13 @@ const Skills = ({ forwardedRef }) => {
                 <IconStyleWrapper>
                   <Adobe />
                 </IconStyleWrapper>
-                <H2>Design</H2>
+                <H2>{designSkills.node.header}</H2>
               </SectionHeaderWrapper>
 
               <StyledUl ref={designUlRef}>
-                <li>Figma</li>
-                <li>Photoshop</li>
-                <li>AfterEffects | animacja</li>
-                <li>Blender | 3D</li>
+                {designSkills.node.skillList.map(skill => (
+                  <li key={skill.id}>{skill.title}</li>
+                ))}
               </StyledUl>
             </StyledSection>
           </SectionsWrapper>
