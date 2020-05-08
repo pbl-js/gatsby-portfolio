@@ -30,11 +30,13 @@ const animation = (background, sectionWrapper, galleryItems) => {
     )
 }
 
-const Aboutme = ({ forwardedRef, gallery }) => {
+const Aboutme = ({ forwardedRef, aboutMe }) => {
   const intersectionRef = useRef(null)
   const background = useRef(null)
   const sectionWrapperRef = useRef(null)
   const galleryRef = useRef(null)
+
+  console.log(aboutMe)
 
   const [runed, setRuned] = useState(false)
 
@@ -70,38 +72,20 @@ const Aboutme = ({ forwardedRef, gallery }) => {
               <span>{"<"}</span> Poznajmy się <span>{"/>"}</span>
             </H1>
 
-            <Paragraph>
-              W programowaniu najbardziej lubię fakt, że jeden dobrze napisany
-              program jest w stanie wykonać pracę dziesiątek a nawet setek
-              ludzi. Pewien znany wizjoner technologi określił komputer „rowerem
-              dla umysłu”. Bardzo spodobało mi się to określenie.Dlatego, ucząc
-              się programowania, robiłem to na W programowaniu najbardziej lubię
-              fakt, że jeden dobrze napisany program jest w stanie wykonać pracę
-              dziesiątek a nawet setek ludzi. Pewien znany wizjoner technologi
-              określił komputer „rowerem dla umysłu”. Bardzo spodobało mi się to
-              określenie.Dlatego, ucząc się programowania, robiłem to na
-            </Paragraph>
+            <Paragraph>{aboutMe.paragraph}</Paragraph>
 
-            <StyledSection>
-              <h2>Dlaczego programowanie?</h2>
+            {aboutMe.textBlocks.map(textBlock => (
+              <StyledSection key={textBlock.id}>
+                <h2>{textBlock.header}</h2>
 
-              <Paragraph>
-                W programowaniu najbardziej lubię fakt, że jeden dobrze napisany
-                program jest w stanie wykonać pracę dziesiątek a nawet setek
-                ludzi. Pewien znany wizjoner technologi określił komputer
-                „rowerem dla umysłu”. Bardzo spodobało mi się to
-                określenie.Dlatego, ucząc się programowania, robiłem to na W
-                programowaniu najbardziej lubię fakt, że jeden dobrze napisany
-                program jest w setek ludzi. Pewien znany wizjoner technologi
-                określił komputer „rowerem dla umysłu”. Bardzo spodobało mi się
-                to określenie.Dlatego, ucząc się programowania, robiłem to na
-              </Paragraph>
-            </StyledSection>
+                <Paragraph>{textBlock.paragraph}</Paragraph>
+              </StyledSection>
+            ))}
           </ContentWrapper>
 
           <Gallery ref={galleryRef}>
             <>
-              {gallery.image.map(item => (
+              {aboutMe.gallery.map(item => (
                 <ImageWrapper key={item.originalId}>
                   <Image fluid={item.fluid} />
                 </ImageWrapper>

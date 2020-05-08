@@ -20,7 +20,7 @@ gsap.config({
   nullTargetWarn: false,
 })
 
-const Header = ({ executeScroll, refs, image }) => {
+const Header = ({ executeScroll, refs, image, cv }) => {
   const nameRef = useRef(null)
   const positionRef = useRef(null)
   const buttonWrapper = useRef(null)
@@ -80,7 +80,11 @@ const Header = ({ executeScroll, refs, image }) => {
             </JobTitle>
             <ButtonWrapper ref={buttonWrapper}>
               <div style={{ overflow: "hidden" }}>
-                <Button secondary>Pobierz CV</Button>
+                <Button secondary as="a" target="_blank " href={cv}>
+                  Pobierz CV
+                </Button>
+
+                {/* <link >siema</link> */}
               </div>
 
               <div style={{ overflow: "hidden" }}>

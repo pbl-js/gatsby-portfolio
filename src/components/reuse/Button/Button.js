@@ -2,6 +2,7 @@ import styled from "styled-components"
 import { darken } from "polished"
 
 export default styled.button`
+  display: block;
   padding: 20px 40px;
   /* border-radius: 10px; */
   font-size: ${({ theme }) => theme.fontSize.m};
@@ -11,9 +12,11 @@ export default styled.button`
   background: ${({ theme, secondary }) =>
     secondary ? "transparent" : theme.color.orange};
 
-  border: ${({ theme, secondary }) =>
-    secondary ? "2px solid " + theme.color.orange : 0};
+  /* border: ${({ theme, secondary }) =>
+    secondary ? "2px solid " + theme.color.orange : 0}; */
+    border: 2px solid ${({ theme }) => theme.color.orange};
   cursor: pointer;
+  text-decoration: orange;
   transition: background-color 0.2s;
 
   :hover {

@@ -33,11 +33,7 @@ const IndexPage = ({ data }) => {
         forwardedRef={refs.projects}
         projects={data.allDatoCmsProject}
       />
-      {/* <AboutMe
-        forwardedRef={refs.aboutMe}
-        gallery={data.datoCmsGallery}
-        aboutMe={data.datoCmsAboutMe}
-      /> */}
+      <AboutMe forwardedRef={refs.aboutMe} aboutMe={data.datoCmsAboutMe} />
       <Contact forwardedRef={refs.contact} contacts={data.datoCmsBasic} />
       <Footer />
     </div>
@@ -97,11 +93,13 @@ export const query = graphql`
 
     datoCmsAboutMe {
       paragraph
-      textBlock {
+      textBlocks {
+        id
         header
         paragraph
       }
       gallery {
+        originalId
         fluid {
           ...GatsbyDatoCmsFluid
         }

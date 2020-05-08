@@ -17,7 +17,7 @@ import {
   StyledButton,
 } from "components/indexSections/Contact/Contact.styles.js"
 
-const Contact = ({ forwardedRef }) => {
+const Contact = ({ forwardedRef, contacts }) => {
   const [formValue, setFormValue] = useState({
     email: "",
     message: "",
@@ -113,16 +113,16 @@ const Contact = ({ forwardedRef }) => {
           </Paragraph>
 
           <ContactWrapper>
-            <a href="mailto:pblpawelmilczak@gmail.com">
+            <a href={`mailto:${contacts.email}`}>
               <Mail />
-              pblpawelmilczak@gmail.com
+              {contacts.email}
             </a>
           </ContactWrapper>
 
           <ContactWrapper>
-            <a href="tel:502 572 544">
+            <a href={`tel:${contacts.phone}`}>
               <PhoneAlt />
-              797 792 613
+              {contacts.phone}
             </a>
           </ContactWrapper>
         </InnerContainer>
