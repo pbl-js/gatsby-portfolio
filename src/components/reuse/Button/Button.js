@@ -18,6 +18,7 @@ export default styled.button`
   cursor: pointer;
   text-decoration: orange;
   transition: background-color 0.2s;
+  text-align: center;
 
   :hover {
     background-color: ${({ theme, secondary }) =>

@@ -92,7 +92,7 @@ export const ImageWrapper = styled.div`
 
   :nth-child(2) {
     margin-top: -35%;
-    margin-right: 100%;
+    margin-right: 40%;
   }
 
   :nth-child(3) {

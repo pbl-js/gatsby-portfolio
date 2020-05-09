@@ -40,13 +40,14 @@ const Header = ({ executeScroll, refs, image, cv }) => {
     gsap.set([nameSpan, positionSpan, buttonPrimary, buttonSecondary], {
       x: "101%",
     })
-    gsap.set([name, position], { autoAlpha: 0 })
+    gsap.set([name, position, nameSpan, positionSpan], { autoAlpha: 0 })
 
-    tl.to(nameSpan, {
-      x: "0%",
-      delay: 1,
-      duration: 0.25,
-    })
+    tl.set([nameSpan, positionSpan], { autoAlpha: 1 })
+      .to(nameSpan, {
+        x: "0%",
+        delay: 1,
+        duration: 0.25,
+      })
       .set(name, { autoAlpha: 1 })
       .to(nameSpan, { x: "-101%", duration: 0.25 })
       .to(positionSpan, {

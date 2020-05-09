@@ -31,7 +31,6 @@ const animation = (background, sectionWrapper, galleryItems) => {
 }
 
 const Aboutme = ({ forwardedRef, aboutMe }) => {
-  const intersectionRef = useRef(null)
   const background = useRef(null)
   const sectionWrapperRef = useRef(null)
   const galleryRef = useRef(null)
@@ -40,7 +39,7 @@ const Aboutme = ({ forwardedRef, aboutMe }) => {
 
   const [runed, setRuned] = useState(false)
 
-  const intersection = useIntersection(intersectionRef, {
+  const intersection = useIntersection(forwardedRef, {
     root: null,
     rootMargin: "0px",
     threshold: 0.5,
@@ -64,7 +63,7 @@ const Aboutme = ({ forwardedRef, aboutMe }) => {
   })
 
   return (
-    <BackgroundWrapper ref={forwardedRef} ref={intersectionRef}>
+    <BackgroundWrapper ref={forwardedRef}>
       <MainWrapper>
         <StyledArticle>
           <ContentWrapper ref={sectionWrapperRef}>

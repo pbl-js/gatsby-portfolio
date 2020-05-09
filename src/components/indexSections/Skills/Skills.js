@@ -46,7 +46,7 @@ const animation = (frontendLi, backendLi, designLi) => {
 }
 
 const Skills = ({ forwardedRef, skills }) => {
-  const intersectionRef = useRef(null)
+  // const intersectionRef = useRef(null)
 
   const frontendUlRef = useRef(null)
   const backendUlRef = useRef(null)
@@ -54,7 +54,7 @@ const Skills = ({ forwardedRef, skills }) => {
 
   const [runed, setRuned] = useState(false)
 
-  const intersection = useIntersection(intersectionRef, {
+  const intersection = useIntersection(forwardedRef, {
     root: null,
     rootMargin: "0px",
     threshold: 0.2,
@@ -92,8 +92,8 @@ const Skills = ({ forwardedRef, skills }) => {
   )
 
   return (
-    <BackgroundWrapper ref={intersectionRef}>
-      <StyledWrapper ref={forwardedRef}>
+    <BackgroundWrapper ref={forwardedRef}>
+      <StyledWrapper>
         <StyledArticle>
           <H1 orange center>
             <span>{"<"}</span> Umiejętności <span>{"/>"}</span>
