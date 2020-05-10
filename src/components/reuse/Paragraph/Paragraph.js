@@ -1,8 +1,9 @@
 import styled from "styled-components"
+import { fontSize, fontWeight } from "utils/typography"
 
 export default styled.p`
-  font-size: ${({ theme }) => theme.fontSize.xs};
+  font-size: ${fontSize.s};
   line-height: 150%;
-  font-weight: ${({ theme }) => theme.fontWeight.regular};
+  font-weight: ${fontWeight.regular};
   color: ${({ theme }) => theme.color.greyTertiary};
 `

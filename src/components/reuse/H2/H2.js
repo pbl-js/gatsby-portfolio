@@ -1,13 +1,14 @@
 import styled from "styled-components"
+import { fontSize, fontWeight } from "utils/typography"
 
 export default styled.h2`
-  font-size: ${({ theme }) => theme.fontSize.l};
-  font-weight: ${({ theme }) => theme.fontWeight.bold};
+  font-size: ${fontSize.l};
+  font-weight: ${fontWeight.bold};
   /* color: ${({ theme }) => theme.color.white}; */
   letter-spacing: 3px;
   text-transform: uppercase;
 
   @media ${({ theme }) => theme.device.tablet} {
-    font-size: ${({ theme }) => theme.fontSize.m};
+    font-size: ${fontSize.m};
   }
 `

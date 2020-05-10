@@ -20,6 +20,7 @@ module.exports = {
         layouts: path.join(__dirname, "src/layouts"),
         pages: path.join(__dirname, "src/pages"),
         genPages: path.join(__dirname, "src/genPages"),
+        utils: path.join(__dirname, "src/utils"),
       },
     },
     {

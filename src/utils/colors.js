@@ -1,0 +1,6 @@
+export const orange = "#EBB740"
+export const navyBlue = "#07142C"
+export const greyPrimary = "#1A2435"
+export const greySecondary = "#363F4E"
+export const greyTertiary = "#A4AFC3"
+export const white = "ffffff"

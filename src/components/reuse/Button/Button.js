@@ -1,12 +1,13 @@
 import styled from "styled-components"
+import { fontSize, fontWeight } from "utils/typography"
 import { darken } from "polished"
 
 export default styled.button`
   display: block;
   padding: 20px 40px;
   /* border-radius: 10px; */
-  font-size: ${({ theme }) => theme.fontSize.m};
-  font-weight: ${({ theme }) => theme.fontWeight.semiBold};
+  font-size: ${fontSize.m};
+  font-weight: ${fontWeight.semiBold};
   color: ${({ theme, secondary }) =>
     secondary ? theme.color.orange : theme.color.white};
   background: ${({ theme, secondary }) =>
@@ -27,7 +28,7 @@ export default styled.button`
   }
 
   @media ${({ theme }) => theme.device.tablet} {
-    font-size: ${({ theme }) => theme.fontSize.s};
+    font-size: ${fontSize.s};
     padding: 15px 30px;
   }
 `

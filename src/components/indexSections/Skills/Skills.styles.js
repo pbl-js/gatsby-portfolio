@@ -1,4 +1,5 @@
 import styled from "styled-components"
+import { fontSize, fontWeight } from "utils/typography"
 import { StyledIconBase } from "@styled-icons/styled-icon"
 
 export const BackgroundWrapper = styled.div`
@@ -59,8 +60,8 @@ export const StyledUl = styled.ul`
   margin-top: 20px;
   margin-left: 20px;
   line-height: 250%;
-  font-size: ${({ theme }) => theme.fontSize.s};
-  font-weight: ${({ theme }) => theme.fontWeight.regular};
+  font-size: ${fontSize.s};
+  font-weight: ${fontWeight.regular};
   display: grid;
   overflow: hidden;
 

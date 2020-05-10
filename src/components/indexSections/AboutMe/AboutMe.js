@@ -83,7 +83,7 @@ const Aboutme = ({ forwardedRef, aboutMe }) => {
             <>
               {aboutMe.gallery.map(item => (
                 <ImageWrapper key={item.originalId}>
-                  <Image fluid={item.fluid} />
+                  {/* <Image fluid={item.fluid} /> */}
                 </ImageWrapper>
               ))}
             </>

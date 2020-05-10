@@ -1,8 +1,9 @@
 import styled from "styled-components"
+import { fontSize, fontWeight } from "utils/typography"
 
 export default styled.h1`
-  font-size: ${({ theme }) => theme.fontSize.xxl};
-  font-weight: ${({ theme }) => theme.fontWeight.bold};
+  font-size: ${fontSize.xxl};
+  font-weight: ${fontWeight.bold};
   color: ${({ theme, orange }) =>
     orange ? theme.color.orange : theme.color.white};
   letter-spacing: 3px;
@@ -17,6 +18,6 @@ export default styled.h1`
   }
 
   @media ${({ theme }) => theme.device.laptop} {
-    font-size: ${({ theme }) => theme.fontSize.xl};
+    font-size: ${fontSize.xl};
   }
 `

@@ -65,9 +65,7 @@ const Header = ({ executeScroll, refs, image, cv }) => {
   return (
     <BackgroundWrapper>
       <StyledWrapper>
-        <OrangeDiv>
-          <StyledImg fluid={image} />
-        </OrangeDiv>
+        <OrangeDiv>{/* <StyledImg fluid={image} /> */}</OrangeDiv>
         <Navigation refs={refs} executeScroll={executeScroll} />
         <Container>
           <InnerWrapper>

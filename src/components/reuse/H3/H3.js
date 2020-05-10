@@ -1,8 +1,8 @@
 import styled from "styled-components"
+import { fontSize, fontWeight } from "utils/typography"
 
 export default styled.h3`
-  font-size: ${({ theme }) => theme.fontSize.s};
-  font-weight: ${({ theme }) => theme.fontWeight.semiBold};
-  /* color: ${({ theme }) => theme.color.white}; */
+  font-size: ${fontSize.s};
+  font-weight: ${fontWeight.semiBold};
   letter-spacing: 1px;
 `

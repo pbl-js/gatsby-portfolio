@@ -1,5 +1,6 @@
 import styled from "styled-components"
 import SmallButton from "components/reuse/SmallButton/SmallButton"
+import { fontSize } from "utils/typography"
 
 export const StyledWrapper = styled.div`
   width: 100%;
@@ -34,8 +35,7 @@ export const InnerContainer = styled.div`
 `
 
 export const ContactWrapper = styled.div`
-  font-size: ${({ theme }) => theme.fontSize.s};
-  font-size: ${({ theme }) => theme.fontWeight.semiBold};
+  font-size: ${fontSize.s};
 
   a {
     color: white;
@@ -73,7 +73,7 @@ export const StyledInput = styled.input`
   border: 0;
   border-bottom: 2px solid ${({ theme }) => theme.color.greyTertiary};
   color: ${({ theme }) => theme.color.greyTertiary};
-  font-size: ${({ theme }) => theme.fontSize.xs};
+  font-size: ${fontSize.xs};
 `
 
 export const StyledTextArea = styled.textarea`
@@ -83,7 +83,7 @@ export const StyledTextArea = styled.textarea`
   border: 0;
   border-bottom: 2px solid ${({ theme }) => theme.color.greyTertiary};
   color: ${({ theme }) => theme.color.greyTertiary};
-  font-size: ${({ theme }) => theme.fontSize.xs};
+  font-size: ${fontSize.xs};
   resize: none;
 `
 

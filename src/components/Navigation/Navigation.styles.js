@@ -1,4 +1,5 @@
 import styled from "styled-components"
+import { fontSize, fontWeight } from "utils/typography"
 import { Menu } from "@styled-icons/entypo/Menu"
 
 export const StyledNav = styled.nav`
@@ -37,8 +38,8 @@ export const StyledLi = styled.li`
   margin-left: 50px;
   text-decoration: none;
   color: ${({ theme }) => theme.color.white};
-  font-size: ${({ theme }) => theme.fontSize.m};
-  font-weight: ${({ theme }) => theme.fontWeight.bold};
+  font-size: ${fontSize.m};
+  font-weight: ${fontWeight.bold};
   cursor: pointer;
 
   &::after {
@@ -62,6 +63,6 @@ export const StyledLi = styled.li`
   }
 
   @media ${({ theme }) => theme.device.laptop} {
-    font-size: ${({ theme }) => theme.fontSize.m};
+    font-size: ${fontSize.m};
   }
 `

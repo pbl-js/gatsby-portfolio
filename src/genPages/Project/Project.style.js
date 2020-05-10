@@ -1,4 +1,5 @@
 import styled from "styled-components"
+import { fontSize } from "utils/typography"
 import SmallButton from "components/reuse/SmallButton/SmallButton"
 
 export const Sidebar = styled.div`
@@ -49,7 +50,7 @@ export const TechnologiesWrapper = styled.ul`
 export const TechnologyItem = styled.li`
   padding: 5px 10px;
   background-color: ${({ theme }) => theme.color.greySecondary};
-  font-size: ${({ theme }) => theme.fontSize.xxs};
+  font-size: ${fontSize.xxs};
 `
 
 export const Divider = styled.span`

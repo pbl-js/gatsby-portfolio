@@ -80,7 +80,7 @@ const ProjectItem = ({ title, photo, paragraph, isEven }) => {
         }
       >
         <StyledImage isEven={isEven} ref={imageRef}>
-          <Image fluid={photo} />
+          {/* <Image fluid={photo} /> */}
         </StyledImage>
 
         <ContentWrapper isEven={isEven}>

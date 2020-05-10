@@ -1,5 +1,6 @@
 import styled from "styled-components"
 import Image from "gatsby-image"
+import { fontSize, fontWeight } from "utils/typography"
 
 export const BackgroundWrapper = styled.div`
   position: relative;
@@ -108,7 +109,7 @@ export const ButtonWrapper = styled.div`
 
 export const NameSurname = styled.h1`
   position: relative;
-  font-size: ${({ theme }) => theme.fontSize.xxxl};
+  font-size: ${fontSize.xxxl};
   text-transform: uppercase;
   text-align: right;
   color: ${({ theme }) => theme.color.orange};
@@ -116,15 +117,15 @@ export const NameSurname = styled.h1`
   overflow: hidden;
 
   @media ${({ theme }) => theme.device.laptop} {
-    font-size: ${({ theme }) => theme.fontSize.xxl};
+    font-size: ${fontSize.xxl};
   }
 `
 
 export const JobTitle = styled.h2`
   position: relative;
   overflow: hidden;
-  font-size: ${({ theme }) => theme.fontSize.xxl};
-  font-weight: ${({ theme }) => theme.fontWeight.regular};
+  font-size: ${fontSize.xxl};
+  font-weight: ${fontWeight.regular};
   letter-spacing: 2px;
   text-transform: uppercase;
   text-align: right;
@@ -132,7 +133,7 @@ export const JobTitle = styled.h2`
   margin-top: 10px;
 
   @media ${({ theme }) => theme.device.laptop} {
-    font-size: ${({ theme }) => theme.fontSize.l};
+    font-size: ${fontSize.l};
   }
 `
 
