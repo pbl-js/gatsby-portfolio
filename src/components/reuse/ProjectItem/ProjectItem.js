@@ -1,5 +1,4 @@
 import React, { useRef, useEffect, useState } from "react"
-import { Link } from "gatsby"
 import slugify from "slugify"
 import Image from "gatsby-image"
 import gsap from "gsap"
@@ -69,7 +68,7 @@ const ProjectItem = ({ title, photo, paragraph, isEven }) => {
       gsap.set(spanRef.current, { x: "-200px", autoAlpha: 0 })
       gsap.set(imageRef.current, { x: "-200px", autoAlpha: 0 })
     }
-  })
+  }, [runed, setRuned, intersection])
 
   return (
     <TransitionCoverLink length={1} delay={0.5} to={`/projects/${slug}`}>

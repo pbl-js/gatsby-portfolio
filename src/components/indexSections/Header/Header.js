@@ -24,9 +24,9 @@ const Header = ({ executeScroll, refs, image, cv }) => {
   const nameRef = useRef(null)
   const positionRef = useRef(null)
   const buttonWrapper = useRef(null)
-  const tl = gsap.timeline({ defaults: { ease: "power3.inOut" } })
 
   useEffect(() => {
+    const tl = gsap.timeline({ defaults: { ease: "power3.inOut" } })
     const name = nameRef.current.children[0]
     const nameSpan = nameRef.current.children[1]
 
@@ -35,7 +35,6 @@ const Header = ({ executeScroll, refs, image, cv }) => {
 
     const buttonPrimary = buttonWrapper.current.children[0].children[0]
     const buttonSecondary = buttonWrapper.current.children[1].children[0]
-    console.log(buttonSecondary)
 
     gsap.set([nameSpan, positionSpan, buttonPrimary, buttonSecondary], {
       x: "101%",

@@ -1,6 +1,5 @@
 import styled from "styled-components"
 import { StyledIconBase } from "@styled-icons/styled-icon"
-import { darken } from "polished"
 
 export const BackgroundWrapper = styled.div`
   position: relative;

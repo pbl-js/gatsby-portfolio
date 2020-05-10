@@ -76,7 +76,7 @@ const Skills = ({ forwardedRef, skills }) => {
         x: "-100%",
       })
     }
-  })
+  }, [runed, setRuned, intersection])
 
   // CMS data
   const [frontendSkills] = skills.filter(

@@ -17,6 +17,8 @@ import {
   StyledButton,
 } from "components/indexSections/Contact/Contact.styles.js"
 
+/* eslint-disable */
+
 const Contact = ({ forwardedRef, contacts }) => {
   const [formValue, setFormValue] = useState({
     email: "",
@@ -80,8 +82,6 @@ const Contact = ({ forwardedRef, contacts }) => {
     e.preventDefault()
 
     if (!submitting) {
-      console.log(formValue)
-
       axios
         .post(
           "https://us-central1-gatsby-portfolio-a09a3.cloudfunctions.net/sendEmail",
@@ -89,11 +89,9 @@ const Contact = ({ forwardedRef, contacts }) => {
         )
         .then(res => {
           setSubmitting(true)
-          console.log(res)
           setButtonText("Wysłano")
         })
         .catch(err => {
-          console.log(err)
           setSubmitting(true)
         })
     }

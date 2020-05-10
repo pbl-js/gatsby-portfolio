@@ -18,7 +18,6 @@ import {
 
 const animation = (background, sectionWrapper, galleryItems) => {
   const tl = gsap.timeline()
-  console.log(galleryItems)
 
   tl.fromTo(background, { x: "-100%" }, { duration: 0.5, x: "0%" })
     .fromTo(background, { x: "0%" }, { duration: 0.5, x: "100%" })
@@ -34,8 +33,6 @@ const Aboutme = ({ forwardedRef, aboutMe }) => {
   const background = useRef(null)
   const sectionWrapperRef = useRef(null)
   const galleryRef = useRef(null)
-
-  console.log(aboutMe)
 
   const [runed, setRuned] = useState(false)
 
@@ -60,7 +57,7 @@ const Aboutme = ({ forwardedRef, aboutMe }) => {
       gsap.set(sectionWrapperRef.current, { autoAlpha: 0, x: -100 })
       gsap.set(galleryRef.current.children, { autoAlpha: 0, scale: 0.5 })
     }
-  })
+  }, [runed, setRuned, intersection])
 
   return (
     <BackgroundWrapper ref={forwardedRef}>
