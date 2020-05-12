@@ -22,41 +22,36 @@ gsap.config({
 
 const Header = ({ executeScroll, refs, image, cv }) => {
   const nameRef = useRef(null)
+  const nameSpanRef = useRef(null)
   const positionRef = useRef(null)
-  const buttonWrapper = useRef(null)
+  const positionSpanRef = useRef(null)
+  const buttonFirstRef = useRef(null)
+  const buttonSecondRef = useRef(null)
 
   useEffect(() => {
     const tl = gsap.timeline({ defaults: { ease: "power3.inOut" } })
-    const name = nameRef.current.children[0]
-    const nameSpan = nameRef.current.children[1]
 
-    const position = positionRef.current.children[0]
-    const positionSpan = positionRef.current.children[1]
-
-    const buttonPrimary = buttonWrapper.current.children[0].children[0]
-    const buttonSecondary = buttonWrapper.current.children[1].children[0]
-
-    gsap.set([nameSpan, positionSpan, buttonPrimary, buttonSecondary], {
-      x: "101%",
+    tl.to(nameSpanRef.current, {
+      css: { transform: "translateX(0%)" },
+      delay: 1.25,
+      duration: 0.25,
     })
-    gsap.set([name, position, nameSpan, positionSpan], { autoAlpha: 0 })
-
-    tl.set([nameSpan, positionSpan], { autoAlpha: 1 })
-      .to(nameSpan, {
-        x: "0%",
-        delay: 1,
+      .set(nameRef.current, { autoAlpha: 1 })
+      .to(nameSpanRef.current, {
+        css: { transform: "translateX(-100%)" },
         duration: 0.25,
       })
-      .set(name, { autoAlpha: 1 })
-      .to(nameSpan, { x: "-101%", duration: 0.25 })
-      .to(positionSpan, {
-        x: "0%",
+      .to(positionSpanRef.current, {
+        css: { transform: "translateX(0%)" },
         duration: 0.25,
       })
-      .set(position, { autoAlpha: 1 })
-      .to(positionSpan, { x: "-101%", duration: 0.25 })
-      .to([buttonPrimary, buttonSecondary], {
-        x: "0%",
+      .set(positionRef.current, { autoAlpha: 1 })
+      .to(positionSpanRef.current, {
+        css: { transform: "translateX(-100%)" },
+        duration: 0.25,
+      })
+      .to([buttonFirstRef.current, buttonSecondRef.current], {
+        css: { transform: "translateX(0%)" },
         duration: 0.25,
         delay: 0.25,
       })
@@ -65,28 +60,44 @@ const Header = ({ executeScroll, refs, image, cv }) => {
   return (
     <BackgroundWrapper>
       <StyledWrapper>
-        <OrangeDiv>{/* <StyledImg fluid={image} /> */}</OrangeDiv>
+        <OrangeDiv>
+          <StyledImg fluid={image} />
+        </OrangeDiv>
         <Navigation refs={refs} executeScroll={executeScroll} />
         <Container>
           <InnerWrapper>
-            <NameSurname ref={nameRef}>
-              <span>paweł Miłczak</span> <AniSpan />
+            <NameSurname>
+              <span className="nameText" ref={nameRef}>
+                paweł Miłczak
+              </span>
+              <AniSpan ref={nameSpanRef} />
             </NameSurname>
-            <JobTitle ref={positionRef}>
-              <span> frontend developer</span>
-              <AniSpan />
+
+            <JobTitle>
+              <span className="positionText" ref={positionRef}>
+                frontend developer
+              </span>
+              <AniSpan ref={positionSpanRef} />
             </JobTitle>
-            <ButtonWrapper ref={buttonWrapper}>
+
+            <ButtonWrapper>
               <div style={{ overflow: "hidden" }}>
-                <Button secondary as="a" target="_blank " href={cv}>
+                <Button
+                  secondary
+                  as="a"
+                  target="_blank "
+                  href={cv}
+                  ref={buttonFirstRef}
+                >
                   Pobierz CV
                 </Button>
-
-                {/* <link >siema</link> */}
               </div>
 
               <div style={{ overflow: "hidden" }}>
-                <Button onClick={() => executeScroll(refs.projects)}>
+                <Button
+                  onClick={() => executeScroll(refs.projects)}
+                  ref={buttonSecondRef}
+                >
                   Zobacz projekty
                 </Button>
               </div>

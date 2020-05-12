@@ -105,6 +105,11 @@ export const ButtonWrapper = styled.div`
   @media ${({ theme }) => theme.device.mobileM} {
     grid-template-columns: auto;
   }
+
+  button,
+  a {
+    transform: translateX(100%);
+  }
 `
 
 export const NameSurname = styled.h1`
@@ -118,6 +123,10 @@ export const NameSurname = styled.h1`
 
   @media ${({ theme }) => theme.device.laptop} {
     font-size: ${fontSize.xxl};
+  }
+
+  .nameText {
+    visibility: hidden;
   }
 `
 
@@ -135,6 +144,10 @@ export const JobTitle = styled.h2`
   @media ${({ theme }) => theme.device.laptop} {
     font-size: ${fontSize.l};
   }
+
+  .positionText {
+    visibility: hidden;
+  }
 `
 
 export const AniSpan = styled.span`
@@ -145,4 +158,6 @@ export const AniSpan = styled.span`
   width: 100%;
   height: 100%;
   background-color: ${({ theme }) => theme.color.orange};
+  /* visibility: hidden; */
+  transform: translateX(101%);
 `
