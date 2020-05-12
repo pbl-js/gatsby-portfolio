@@ -41,6 +41,15 @@ const Header = ({ executeScroll, refs, image, cv }) => {
         css: { transform: "translateX(-100%)" },
         duration: 0.25,
       })
+      .to(positionSpanRef.current, {
+        css: { transform: "translateX(0%)" },
+        duration: 0.25,
+      })
+      .set(positionRef.current, { autoAlpha: 1 })
+      .to(positionSpanRef.current, {
+        css: { transform: "translateX(-100%)" },
+        duration: 0.25,
+      })
 
     // tl.set([nameSpanRef.current, positionSpanRef.current], { autoAlpha: 1 })
     //   .to(nameSpanRef.current, {
@@ -73,12 +82,16 @@ const Header = ({ executeScroll, refs, image, cv }) => {
         <Container>
           <InnerWrapper>
             <NameSurname>
-              <span ref={nameRef}>paweł Miłczak</span>
+              <span className="nameText" ref={nameRef}>
+                paweł Miłczak
+              </span>
               <AniSpan ref={nameSpanRef} />
             </NameSurname>
 
             <JobTitle>
-              <span ref={positionRef}>frontend developer</span>
+              <span className="positionText" ref={positionRef}>
+                frontend developer
+              </span>
               <AniSpan ref={positionSpanRef} />
             </JobTitle>
 

@@ -120,7 +120,7 @@ export const NameSurname = styled.h1`
     font-size: ${fontSize.xxl};
   }
 
-  & ${NameSurname}:nth-child(1) {
+  .nameText {
     visibility: hidden;
   }
 `
@@ -140,7 +140,7 @@ export const JobTitle = styled.h2`
     font-size: ${fontSize.l};
   }
 
-  :nth-child(1) {
+  .positionText {
     visibility: hidden;
   }
 `
