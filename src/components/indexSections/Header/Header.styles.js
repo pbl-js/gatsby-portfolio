@@ -145,4 +145,5 @@ export const AniSpan = styled.span`
   width: 100%;
   height: 100%;
   background-color: ${({ theme }) => theme.color.orange};
+  visibility: hidden;
 `
