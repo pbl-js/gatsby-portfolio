@@ -31,46 +31,36 @@ const Header = ({ executeScroll, refs, image, cv }) => {
   useEffect(() => {
     const tl = gsap.timeline({ defaults: { ease: "power3.inOut" } })
 
-    gsap.set(
-      [
-        nameSpanRef.current,
-        positionSpanRef.current,
-        buttonFirstRef.current,
-        buttonSecondRef.current,
-      ],
-      {
-        x: "101%",
-      }
-    )
-    gsap.set(
-      [
-        nameRef.current,
-        positionRef.current,
-        nameSpanRef.current,
-        positionSpanRef.current,
-      ],
-      { autoAlpha: 0 }
-    )
-
-    tl.set([nameSpanRef.current, positionSpanRef.current], { autoAlpha: 1 })
-      .to(nameSpanRef.current, {
-        x: "0%",
-        delay: 1,
-        duration: 0.25,
-      })
+    tl.to(nameSpanRef.current, {
+      css: { transform: "translateX(0%)" },
+      delay: 1,
+      duration: 0.25,
+    })
       .set(nameRef.current, { autoAlpha: 1 })
-      .to(nameSpanRef.current, { x: "-101%", duration: 0.25 })
-      .to(positionSpanRef.current, {
-        x: "0%",
+      .to(nameSpanRef.current, {
+        css: { transform: "translateX(-100%)" },
         duration: 0.25,
       })
-      .set(positionRef.current, { autoAlpha: 1 })
-      .to(positionSpanRef.current, { x: "-101%", duration: 0.25 })
-      .to([buttonFirstRef.current, buttonSecondRef.current], {
-        x: "0%",
-        duration: 0.25,
-        delay: 0.25,
-      })
+
+    // tl.set([nameSpanRef.current, positionSpanRef.current], { autoAlpha: 1 })
+    //   .to(nameSpanRef.current, {
+    //     x: "0%",
+    //     delay: 1,
+    //     duration: 0.25,
+    //   })
+    //   .set(nameRef.current, { autoAlpha: 1 })
+    //   .to(nameSpanRef.current, { x: "-101%", duration: 0.25 })
+    //   .to(positionSpanRef.current, {
+    //     x: "0%",
+    //     duration: 0.25,
+    //   })
+    //   .set(positionRef.current, { autoAlpha: 1 })
+    //   .to(positionSpanRef.current, { x: "-101%", duration: 0.25 })
+    //   .to([buttonFirstRef.current, buttonSecondRef.current], {
+    //     x: "0%",
+    //     duration: 0.25,
+    //     delay: 0.25,
+    //   })
   }, [])
 
   return (
@@ -83,13 +73,15 @@ const Header = ({ executeScroll, refs, image, cv }) => {
         <Container>
           <InnerWrapper>
             <NameSurname>
-              <span ref={nameRef}>paweł Miłczak</span>{" "}
+              <span ref={nameRef}>paweł Miłczak</span>
               <AniSpan ref={nameSpanRef} />
             </NameSurname>
+
             <JobTitle>
-              <span ref={positionRef}> frontend developer</span>
+              <span ref={positionRef}>frontend developer</span>
               <AniSpan ref={positionSpanRef} />
             </JobTitle>
+
             <ButtonWrapper>
               <div style={{ overflow: "hidden" }}>
                 <Button

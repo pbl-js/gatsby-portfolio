@@ -119,6 +119,10 @@ export const NameSurname = styled.h1`
   @media ${({ theme }) => theme.device.laptop} {
     font-size: ${fontSize.xxl};
   }
+
+  & ${NameSurname}:nth-child(1) {
+    visibility: hidden;
+  }
 `
 
 export const JobTitle = styled.h2`
@@ -135,6 +139,10 @@ export const JobTitle = styled.h2`
   @media ${({ theme }) => theme.device.laptop} {
     font-size: ${fontSize.l};
   }
+
+  :nth-child(1) {
+    visibility: hidden;
+  }
 `
 
 export const AniSpan = styled.span`
@@ -145,5 +153,6 @@ export const AniSpan = styled.span`
   width: 100%;
   height: 100%;
   background-color: ${({ theme }) => theme.color.orange};
-  visibility: hidden;
+  /* visibility: hidden; */
+  transform: translateX(101%);
 `
