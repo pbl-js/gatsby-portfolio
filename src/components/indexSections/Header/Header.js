@@ -22,40 +22,51 @@ gsap.config({
 
 const Header = ({ executeScroll, refs, image, cv }) => {
   const nameRef = useRef(null)
+  const nameSpanRef = useRef(null)
   const positionRef = useRef(null)
-  const buttonWrapper = useRef(null)
+  const positionSpanRef = useRef(null)
+  const buttonFirstRef = useRef(null)
+  const buttonSecondRef = useRef(null)
 
   useEffect(() => {
     const tl = gsap.timeline({ defaults: { ease: "power3.inOut" } })
-    const name = nameRef.current.children[0]
-    const nameSpan = nameRef.current.children[1]
 
-    const position = positionRef.current.children[0]
-    const positionSpan = positionRef.current.children[1]
+    gsap.set(
+      [
+        nameSpanRef.current,
+        positionSpanRef.current,
+        buttonFirstRef.current,
+        buttonSecondRef.current,
+      ],
+      {
+        x: "101%",
+      }
+    )
+    gsap.set(
+      [
+        nameRef.current,
+        positionRef.current,
+        nameSpanRef.current,
+        positionSpanRef.current,
+      ],
+      { autoAlpha: 0 }
+    )
 
-    const buttonPrimary = buttonWrapper.current.children[0].children[0]
-    const buttonSecondary = buttonWrapper.current.children[1].children[0]
-
-    gsap.set([nameSpan, positionSpan, buttonPrimary, buttonSecondary], {
-      x: "101%",
-    })
-    gsap.set([name, position, nameSpan, positionSpan], { autoAlpha: 0 })
-
-    tl.set([nameSpan, positionSpan], { autoAlpha: 1 })
-      .to(nameSpan, {
+    tl.set([nameSpanRef.current, positionSpanRef.current], { autoAlpha: 1 })
+      .to(nameSpanRef.current, {
         x: "0%",
         delay: 1,
         duration: 0.25,
       })
-      .set(name, { autoAlpha: 1 })
-      .to(nameSpan, { x: "-101%", duration: 0.25 })
-      .to(positionSpan, {
+      .set(nameRef.current, { autoAlpha: 1 })
+      .to(nameSpanRef.current, { x: "-101%", duration: 0.25 })
+      .to(positionSpanRef.current, {
         x: "0%",
         duration: 0.25,
       })
-      .set(position, { autoAlpha: 1 })
-      .to(positionSpan, { x: "-101%", duration: 0.25 })
-      .to([buttonPrimary, buttonSecondary], {
+      .set(positionRef.current, { autoAlpha: 1 })
+      .to(positionSpanRef.current, { x: "-101%", duration: 0.25 })
+      .to([buttonFirstRef.current, buttonSecondRef.current], {
         x: "0%",
         duration: 0.25,
         delay: 0.25,
@@ -71,24 +82,32 @@ const Header = ({ executeScroll, refs, image, cv }) => {
         <Navigation refs={refs} executeScroll={executeScroll} />
         <Container>
           <InnerWrapper>
-            <NameSurname ref={nameRef}>
-              <span>paweł Miłczak</span> <AniSpan />
+            <NameSurname>
+              <span ref={nameRef}>paweł Miłczak</span>{" "}
+              <AniSpan ref={nameSpanRef} />
             </NameSurname>
-            <JobTitle ref={positionRef}>
-              <span> frontend developer</span>
-              <AniSpan />
+            <JobTitle>
+              <span ref={positionRef}> frontend developer</span>
+              <AniSpan ref={positionSpanRef} />
             </JobTitle>
-            <ButtonWrapper ref={buttonWrapper}>
+            <ButtonWrapper>
               <div style={{ overflow: "hidden" }}>
-                <Button secondary as="a" target="_blank " href={cv}>
+                <Button
+                  secondary
+                  as="a"
+                  target="_blank "
+                  href={cv}
+                  ref={buttonFirstRef}
+                >
                   Pobierz CV
                 </Button>
-
-                {/* <link >siema</link> */}
               </div>
 
               <div style={{ overflow: "hidden" }}>
-                <Button onClick={() => executeScroll(refs.projects)}>
+                <Button
+                  onClick={() => executeScroll(refs.projects)}
+                  ref={buttonSecondRef}
+                >
                   Zobacz projekty
                 </Button>
               </div>
