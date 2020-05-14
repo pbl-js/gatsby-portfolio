@@ -10,16 +10,6 @@ export const BackgroundWrapper = styled.div`
   background-color: ${({ theme }) => theme.color.greyPrimary};
 `
 
-export const AniBackground = styled.span`
-  position: absolute;
-  top: 0;
-  left: 0;
-  display: block;
-  width: 100vw;
-  height: 100%;
-  background-color: ${({ theme }) => darken(0.03, theme.color.greyPrimary)};
-`
-
 export const MainWrapper = styled.div`
   width: 100%;
   max-width: 1440px;

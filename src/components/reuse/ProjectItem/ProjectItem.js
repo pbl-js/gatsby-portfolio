@@ -41,7 +41,7 @@ const outAnimation = (image, content, span) => {
   )
 }
 
-const ProjectItem = ({ title, photo, paragraph, isEven }) => {
+const ProjectItem = ({ title, photo, paragraph, isEven, description }) => {
   const slug = slugify(title, { lower: true })
 
   const intersectionRef = useRef(null)
@@ -87,7 +87,7 @@ const ProjectItem = ({ title, photo, paragraph, isEven }) => {
           <InnerContentWrapper isEven={isEven} ref={contentRef}>
             <OrangeSpan isEven={isEven} ref={spanRef} />
             <H3>{title}</H3>
-            <Paragraph>{paragraph}</Paragraph>
+            <Paragraph>{description}</Paragraph>
             <SmallButton secondary>Zobacz więcej</SmallButton>
           </InnerContentWrapper>
         </ContentWrapper>

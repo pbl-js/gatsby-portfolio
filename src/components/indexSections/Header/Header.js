@@ -38,8 +38,11 @@ const Header = ({ executeScroll, refs, image, cv }) => {
     })
       .set(nameRef.current, { autoAlpha: 1 })
       .to(nameSpanRef.current, {
-        css: { transform: "translateX(-100%)" },
+        css: { transform: "translateX(-101%)" },
         duration: 0.25,
+      })
+      .set(nameSpanRef.current, {
+        css: { visibility: "hidden" },
       })
       .to(positionSpanRef.current, {
         css: { transform: "translateX(0%)" },
@@ -47,8 +50,11 @@ const Header = ({ executeScroll, refs, image, cv }) => {
       })
       .set(positionRef.current, { autoAlpha: 1 })
       .to(positionSpanRef.current, {
-        css: { transform: "translateX(-100%)" },
+        css: { transform: "translateX(-101%)" },
         duration: 0.25,
+      })
+      .set(positionSpanRef.current, {
+        css: { visibility: "hidden" },
       })
       .to([buttonFirstRef.current, buttonSecondRef.current], {
         css: { transform: "translateX(0%)" },

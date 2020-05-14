@@ -108,7 +108,7 @@ export const ButtonWrapper = styled.div`
 
   button,
   a {
-    transform: translateX(100%);
+    transform: translateX(101%);
   }
 `
 
