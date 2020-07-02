@@ -8,6 +8,7 @@
     "axios": "^0.19.2",
     "babel-plugin-styled-components": "^1.10.7",
     "dotenv": "^8.2.0",
+    "formik": "^2.1.4",
     "gatsby": "^2.19.45",
     "gatsby-image": "^2.2.44",
     "gatsby-plugin-layout": "^1.2.1",
@@ -30,7 +31,8 @@
     "react-use": "^14.1.1",
     "slugify": "^1.4.0",
     "styled-components": "^5.0.1",
-    "styled-icons": "^10.2.1"
+    "styled-icons": "^10.2.1",
+    "yup": "^0.29.1"
   },
   "devDependencies": {
     "gatsby-plugin-root-import": "^2.0.5",

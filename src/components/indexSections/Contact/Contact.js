@@ -1,5 +1,7 @@
 import React, { useState } from "react"
 import axios from "axios"
+import { useFormik } from "formik"
+import * as Yup from "yup"
 
 import { Mail } from "@styled-icons/entypo/Mail"
 import { PhoneAlt } from "@styled-icons/fa-solid/PhoneAlt"
@@ -17,85 +19,46 @@ import {
   StyledButton,
 } from "components/indexSections/Contact/Contact.styles.js"
 
-/* eslint-disable */
-
 const Contact = ({ forwardedRef, contacts }) => {
-  const [formValue, setFormValue] = useState({
+  const [submiting, setSubmiting] = useState(false)
+  const [messageConfirm, setMessageConfirm] = useState("")
+
+  const initialValues = {
     email: "",
     message: "",
+  }
+
+  const onSubmit = values => {
+    setSubmiting(true)
+    setMessageConfirm("")
+
+    axios
+      .post(
+        "https://us-central1-gatsby-portfolio-a09a3.cloudfunctions.net/sendEmail",
+        formik.values
+      )
+      .then(res => {
+        setSubmiting(false)
+        setMessageConfirm("Wiadomość wysłana poprawnie")
+      })
+      .catch(err => {
+        setSubmiting(false)
+        setMessageConfirm("Problem z wysłaniem wiadomości")
+      })
+  }
+
+  const validationSchema = Yup.object({
+    email: Yup.string()
+      .required("Podaj adres email")
+      .email("Niepoprawny email"),
+    message: Yup.string().required("Podaj treść wiadomości"),
   })
-  const [submitting, setSubmitting] = useState(false)
-  const [buttonText, setButtonText] = useState("Wyślij")
-  const [errors, setErrors] = useState({
-    email: "",
-    message: "",
+
+  const formik = useFormik({
+    initialValues,
+    onSubmit,
+    validationSchema,
   })
-
-  const handleChange = e => {
-    setFormValue({
-      ...formValue,
-      [e.target.name]: e.target.value,
-    })
-  }
-
-  const validateEmail = email => {
-    var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-    return re.test(email)
-  }
-
-  const handleBlurEmail = e => {
-    const isCorrect = validateEmail(formValue.email)
-
-    if (formValue.email === "") {
-      setErrors({
-        ...errors,
-        email: "Podaj adres email",
-      })
-    } else if (!isCorrect) {
-      setErrors({
-        ...errors,
-        email: "Niepoprawny adres email",
-      })
-    } else {
-      setErrors({
-        ...errors,
-        email: "",
-      })
-    }
-  }
-
-  const handleBlurMessage = e => {
-    if (formValue.message === "") {
-      setErrors({
-        ...errors,
-        message: "Wpisz treść wiadomości",
-      })
-    } else {
-      setErrors({
-        ...errors,
-        message: "",
-      })
-    }
-  }
-
-  const handleSubmit = e => {
-    e.preventDefault()
-
-    if (!submitting) {
-      axios
-        .post(
-          "https://us-central1-gatsby-portfolio-a09a3.cloudfunctions.net/sendEmail",
-          formValue
-        )
-        .then(res => {
-          setSubmitting(true)
-          setButtonText("Wysłano")
-        })
-        .catch(err => {
-          setSubmitting(true)
-        })
-    }
-  }
 
   return (
     <StyledWrapper ref={forwardedRef}>
@@ -125,29 +88,40 @@ const Contact = ({ forwardedRef, contacts }) => {
           </ContactWrapper>
         </InnerContainer>
 
-        <FormWrapper onSubmit={handleSubmit}>
+        <FormWrapper onSubmit={formik.handleSubmit}>
           <StyledInput
+            type="email"
+            id="email"
             name="email"
-            placeholder="Twój email"
-            value={formValue.email}
-            onChange={handleChange}
-            onBlur={handleBlurEmail}
+            placeholder="Email"
+            onChange={formik.handleChange}
+            value={formik.values.name}
+            onBlur={formik.handleBlur}
           />
 
           <StyledTextArea
-            placeholder="Zostaw wiadomość"
+            id="message"
             name="message"
-            value={formValue.message}
-            onChange={handleChange}
-            onBlur={handleBlurMessage}
+            placeholder="Message"
+            onChange={formik.handleChange}
+            value={formik.values.message}
+            onBlur={formik.handleBlur}
           />
 
-          {errors.email && <Paragraph>{errors.email}</Paragraph>}
-          {errors.message && <Paragraph>{errors.message}</Paragraph>}
+          {formik.errors.email && formik.touched.email && (
+            <div>{formik.errors.email}</div>
+          )}
+          {formik.errors.message && formik.touched.message && (
+            <div>{formik.errors.message}</div>
+          )}
 
-          <StyledButton disable={submitting} type="submit">
-            {buttonText}
+          <StyledButton disable={submiting} type="submit">
+            {submiting ? "Wysyłanie" : "Wyślij"}
           </StyledButton>
+
+          {messageConfirm && (
+            <div style={{ textAlign: "center" }}>{messageConfirm}</div>
+          )}
         </FormWrapper>
       </Container>
     </StyledWrapper>
