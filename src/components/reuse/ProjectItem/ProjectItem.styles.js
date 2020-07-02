@@ -1,6 +1,7 @@
 import styled, { css } from "styled-components"
 
 export const MainWrapper = styled.section`
+  position: relative;
   margin-top: ${({ isEven }) => (isEven ? "0px" : "30px")};
   width: 100%;
   cursor: pointer;
@@ -33,24 +34,13 @@ export const ContentWrapper = styled.div`
 
 export const InnerContentWrapper = styled.div`
   position: relative;
-  z-index: 20;
-  top: 15%;
+  z-index: 1;
   display: grid;
   grid-gap: 30px;
   padding: 30px;
   padding-right: 30px;
   padding-left: 90px;
   background-color: ${({ theme }) => theme.color.greySecondary};
-
-  &::before {
-    content: "";
-    position: absolute;
-    z-index: -1;
-    height: 100%;
-    width: 110%;
-    display: block;
-    background-color: ${({ theme }) => theme.color.greySecondary};
-  }
 
   button {
     width: 150px;
@@ -72,7 +62,7 @@ export const InnerContentWrapper = styled.div`
 
 export const OrangeSpan = styled.span`
   position: absolute;
-  z-index: -2;
+  z-index: 0;
   height: 100%;
   width: 80%;
   top: 30px;

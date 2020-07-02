@@ -3,6 +3,7 @@ import slugify from "slugify"
 import Image from "gatsby-image"
 import gsap from "gsap"
 import { useIntersection } from "react-use"
+import { useMeasure } from "react-use"
 
 import H3 from "components/reuse/H3/H3"
 import Paragraph from "components/reuse/Paragraph/Paragraph"
@@ -70,6 +71,9 @@ const ProjectItem = ({ title, photo, paragraph, isEven, description }) => {
     }
   }, [runed, setRuned, intersection])
 
+  // UI
+  const [ref, { height }] = useMeasure()
+
   return (
     <TransitionCoverLink length={1} delay={0.5} to={`/projects/${slug}`}>
       <MainWrapper
@@ -84,12 +88,21 @@ const ProjectItem = ({ title, photo, paragraph, isEven, description }) => {
         </StyledImage>
 
         <ContentWrapper isEven={isEven}>
-          <InnerContentWrapper isEven={isEven} ref={contentRef}>
-            <OrangeSpan isEven={isEven} ref={spanRef} />
-            <H3>{title}</H3>
-            <Paragraph>{description}</Paragraph>
-            <SmallButton secondary>Zobacz więcej</SmallButton>
-          </InnerContentWrapper>
+          <div
+            style={{ zIndex: "3", top: "10%", position: "relative" }}
+            ref={contentRef}
+          >
+            <OrangeSpan
+              isEven={isEven}
+              style={{ height: height + 60 }}
+              ref={spanRef}
+            />
+            <InnerContentWrapper isEven={isEven} ref={ref}>
+              <H3>{title}</H3>
+              <Paragraph>{description}</Paragraph>
+              <SmallButton secondary>Zobacz więcej</SmallButton>
+            </InnerContentWrapper>
+          </div>
         </ContentWrapper>
       </MainWrapper>
     </TransitionCoverLink>
