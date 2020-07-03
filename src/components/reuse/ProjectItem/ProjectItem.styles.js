@@ -18,6 +18,12 @@ export const ContentWrapper = styled.div`
   color: white;
   transform: translateX(-60px);
 
+  div{
+    width:  ${({ isEven }) => (isEven ? "100%" : "calc(100% + 30px)")};
+    position: relative;
+    top: ${({ isEven }) => (isEven ? "0" : "10%")};
+  }
+
   ${({ isEven }) =>
     isEven &&
     css`

@@ -15,9 +15,9 @@ import {
   ImageWrapper,
 } from "components/indexSections/AboutMe/AboutMe.styles.js"
 
-const Aboutme = ({ forwardedRef, aboutMe }) => {
+const Aboutme = ({ aboutMe }) => {
   return (
-    <BackgroundWrapper ref={forwardedRef}>
+    <BackgroundWrapper id="aboutSection">
       <MainWrapper>
         <StyledArticle>
           <ContentWrapper>

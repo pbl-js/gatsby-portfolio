@@ -1,5 +1,6 @@
 import React, { useRef, useEffect } from "react"
 import { gsap } from "gsap"
+import { Link as ScrollLink, animateScroll as scroll } from "react-scroll"
 
 import Button from "components/reuse/Button/Button"
 import Navigation from "components/Navigation/Navigation"
@@ -20,7 +21,7 @@ gsap.config({
   nullTargetWarn: false,
 })
 
-const Header = ({ executeScroll, refs, image, cv }) => {
+const Header = ({ image, cv }) => {
   const nameRef = useRef(null)
   const nameSpanRef = useRef(null)
   const positionRef = useRef(null)
@@ -69,7 +70,7 @@ const Header = ({ executeScroll, refs, image, cv }) => {
         <OrangeDiv>
           <StyledImg fluid={image} />
         </OrangeDiv>
-        <Navigation refs={refs} executeScroll={executeScroll} />
+        <Navigation />
         <Container>
           <InnerWrapper>
             <NameSurname>
@@ -100,12 +101,9 @@ const Header = ({ executeScroll, refs, image, cv }) => {
               </div>
 
               <div style={{ overflow: "hidden" }}>
-                <Button
-                  onClick={() => executeScroll(refs.projects)}
-                  ref={buttonSecondRef}
-                >
-                  Zobacz projekty
-                </Button>
+                <ScrollLink to="projectsSection" smooth={true} duration={500}>
+                  <Button ref={buttonSecondRef}>Zobacz projekty</Button>
+                </ScrollLink>
               </div>
             </ButtonWrapper>
           </InnerWrapper>

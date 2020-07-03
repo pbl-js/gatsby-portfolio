@@ -1,4 +1,5 @@
 import React from "react"
+import { Link as ScrollLink } from "react-scroll"
 
 import {
   StyledNav,
@@ -7,22 +8,54 @@ import {
   StyledLi,
 } from "components/Navigation/Navigation.styles.js"
 
-const Navigation = ({ executeScroll, refs }) => {
+const Navigation = () => {
   return (
     <StyledNav>
       <Hamburger />
       <StyledUl>
-        <StyledLi onClick={() => executeScroll(refs.aboutMe)}>O mnie</StyledLi>
-
-        <StyledLi onClick={() => executeScroll(refs.skills)}>
-          Umiejętności
+        <StyledLi>
+          <ScrollLink
+            to="aboutSection"
+            smooth={true}
+            duration={500}
+            offset={-100}
+          >
+            O mnie
+          </ScrollLink>
         </StyledLi>
 
-        <StyledLi onClick={() => executeScroll(refs.projects)}>
-          Projekty
+        <StyledLi>
+          <ScrollLink
+            to="skillsSection"
+            smooth={true}
+            duration={500}
+            offset={-100}
+          >
+            Umiejętności
+          </ScrollLink>
         </StyledLi>
 
-        <StyledLi onClick={() => executeScroll(refs.contact)}>Kontakt</StyledLi>
+        <StyledLi>
+          <ScrollLink
+            to="projectsSection"
+            smooth={true}
+            duration={500}
+            offset={-100}
+          >
+            Projekty
+          </ScrollLink>
+        </StyledLi>
+
+        <StyledLi>
+          <ScrollLink
+            to="contactSection"
+            smooth={true}
+            duration={500}
+            offset={-100}
+          >
+            Kontakt
+          </ScrollLink>
+        </StyledLi>
       </StyledUl>
     </StyledNav>
   )

@@ -8,9 +8,9 @@ import {
   StyledArticle,
 } from "components/indexSections/Projects/Projects.styles.js"
 
-const Projects = ({ forwardedRef, projects }) => {
+const Projects = ({ projects }) => {
   return (
-    <BackgroundWrapper ref={forwardedRef}>
+    <BackgroundWrapper id="projectsSection">
       <StyledWrapper>
         <H1>
           <span>{"<"}</span> Projekty <span>{"/>"}</span>

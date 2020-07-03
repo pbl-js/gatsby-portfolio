@@ -19,7 +19,7 @@ import {
   StyledButton,
 } from "components/indexSections/Contact/Contact.styles.js"
 
-const Contact = ({ forwardedRef, contacts }) => {
+const Contact = ({ contacts }) => {
   const [submiting, setSubmiting] = useState(false)
   const [messageConfirm, setMessageConfirm] = useState("")
 
@@ -61,7 +61,7 @@ const Contact = ({ forwardedRef, contacts }) => {
   })
 
   return (
-    <StyledWrapper ref={forwardedRef}>
+    <StyledWrapper id="contactSection">
       <Container>
         <InnerContainer>
           <H1 orange>

@@ -88,10 +88,7 @@ const ProjectItem = ({ title, photo, paragraph, isEven, description }) => {
         </StyledImage>
 
         <ContentWrapper isEven={isEven}>
-          <div
-            style={{ zIndex: "3", top: "10%", position: "relative" }}
-            ref={contentRef}
-          >
+          <div ref={contentRef}>
             <OrangeSpan
               isEven={isEven}
               style={{ height: height + 60 }}
