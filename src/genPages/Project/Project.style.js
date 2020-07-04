@@ -4,6 +4,7 @@ import SmallButton from "components/reuse/SmallButton/SmallButton"
 
 export const Sidebar = styled.div`
   position: fixed;
+  overflow-y: scroll;
   top: 0;
   right: 0;
   width: 450px;

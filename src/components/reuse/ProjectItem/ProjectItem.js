@@ -75,7 +75,13 @@ const ProjectItem = ({ title, photo, paragraph, isEven, description }) => {
   const [ref, { height }] = useMeasure()
 
   return (
-    <TransitionCoverLink length={1} delay={0.5} to={`/projects/${slug}`}>
+    <TransitionCoverLink
+      duration={1}
+      delay={0.5}
+      to={`/projects/${slug}`}
+      direction="right"
+      style={{ textDecoration: "none" }}
+    >
       <MainWrapper
         isEven={isEven}
         ref={intersectionRef}
