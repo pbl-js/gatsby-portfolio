@@ -3,6 +3,7 @@ import { graphql } from "gatsby"
 import Image from "gatsby-image"
 import slugify from "slugify"
 import { Link } from "gatsby"
+import SEO from "components/SEO"
 
 import { Home } from "@styled-icons/entypo/Home"
 import { LeftArrow } from "@styled-icons/boxicons-solid/LeftArrow"
@@ -30,9 +31,11 @@ export const query = graphql`
   query querySingleArticle($projectId: String!) {
     datoCmsProject(id: { eq: $projectId }) {
       title
+      description
       paragraph
       photos {
         originalId
+        url
         fluid(maxWidth: 1200) {
           ...GatsbyDatoCmsFluid
         }
@@ -65,6 +68,11 @@ const ProjectLayout = ({ data }) => {
 
   return (
     <>
+      <SEO
+        title={cmsData.title}
+        description={cmsData.description}
+        image={cmsData.photos[0].url}
+      />
       <Sidebar>
         <ContentGrid>
           <NavigationWrapper>

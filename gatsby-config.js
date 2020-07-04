@@ -3,11 +3,21 @@ const path = require("path")
 
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Default Starter`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
-    author: `@gatsbyjs`,
+    title: `Paweł Miłczak`,
+    description: `Tworzę oryginalne i dobrze zaprojektowane oprogramowanie.`,
+    author: `Paweł Miłczak`,
   },
   plugins: [
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: `Paweł Miłczak | FrontEnd developer`,
+        short_name: `Paweł Miłczak`,
+        start_url: `/`,
+        display: `minimal-ui`,
+        icon: `src/assets/images/favicon.png`, // This path is relative to the root of the site.
+      },
+    },
     `gatsby-plugin-react-helmet`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,

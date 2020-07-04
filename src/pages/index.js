@@ -1,5 +1,6 @@
 import React from "react"
 import { graphql } from "gatsby"
+import SEO from "components/SEO"
 
 import Header from "components/indexSections/Header/Header"
 import AboutMe from "components/indexSections/AboutMe/AboutMe"
@@ -11,6 +12,7 @@ import Footer from "components/indexSections/Footer/Footer"
 const IndexPage = ({ data }) => {
   return (
     <div>
+      <SEO title="Portfolio" />
       <Header
         image={data.file.childImageSharp.fluid}
         cv={data.datoCmsBasic.cv.url}
