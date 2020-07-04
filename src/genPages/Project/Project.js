@@ -123,7 +123,9 @@ const ProjectLayout = ({ data }) => {
 
       <Gallery>
         {cmsData.photos.map(item => (
-          <Image fluid={item.fluid} key={item.originalId} />
+          <div key={item.originalId}>
+            <Image fluid={item.fluid} />
+          </div>
         ))}
       </Gallery>
     </>

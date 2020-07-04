@@ -1,4 +1,5 @@
 import { createGlobalStyle } from "styled-components"
+import { scrollbar } from "utils/mixins"
 
 const GlobalStyle = createGlobalStyle`
 *, *::before, *::after {
@@ -8,6 +9,7 @@ const GlobalStyle = createGlobalStyle`
     }
     html {
         font-size: 62.5%;
+        ${scrollbar}
     }
     body {
         font-family: 'Montserrat', sans-serif;

@@ -1,16 +1,19 @@
 import styled from "styled-components"
 import { fontSize } from "utils/typography"
 import SmallButton from "components/reuse/SmallButton/SmallButton"
+import { scrollbar } from "utils/mixins"
 
 export const Sidebar = styled.div`
   position: fixed;
-  overflow-y: scroll;
+  overflow-y: auto;
   top: 0;
   right: 0;
   width: 450px;
   height: 100%;
   padding: 50px;
   background-color: ${({ theme }) => theme.color.greyPrimary};
+
+  ${scrollbar}
 
   @media ${({ theme }) => theme.device.laptop} {
     width: 100%;
@@ -62,10 +65,18 @@ export const Divider = styled.span`
 `
 
 export const Gallery = styled.div`
+  height: 100vh;
   margin-right: 30%;
   width: calc(100% - 450px);
+  ${scrollbar}
+  overflow-y: auto;
   display: grid;
-  grid-gap: 20px;
+  grid-gap: 30px;
+  padding: 30px 0;
+
+  div {
+    padding: 0 30px;
+  }
 
   @media ${({ theme }) => theme.device.laptop} {
     display: none;
