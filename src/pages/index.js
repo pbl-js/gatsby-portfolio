@@ -63,6 +63,7 @@ export const query = graphql`
         node {
           id
           title
+          position
           paragraph
           photos {
             fluid(maxWidth: 600) {

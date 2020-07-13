@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useCallback } from "react"
 
 import H1 from "components/reuse/H1/H1"
 import ProjectItem from "components/reuse/ProjectItem/ProjectItem"
@@ -9,6 +9,12 @@ import {
 } from "components/indexSections/Projects/Projects.styles.js"
 
 const Projects = ({ projects }) => {
+  let orderedProjects = projects.edges
+
+  useCallback(() => {
+    orderedProjects.sort((a, b) => a.node.position - b.node.position)
+  }, [projects])
+
   return (
     <BackgroundWrapper id="projectsSection">
       <StyledWrapper>
@@ -16,7 +22,7 @@ const Projects = ({ projects }) => {
           <span>{"<"}</span> Projekty <span>{"/>"}</span>
         </H1>
         <StyledArticle>
-          {projects.edges.map(
+          {orderedProjects.map(
             (
               {
                 node: {
