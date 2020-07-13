@@ -12,7 +12,6 @@ import { RightArrow } from "@styled-icons/boxicons-solid/RightArrow"
 import H2 from "components/reuse/H2/H2"
 import H3 from "components/reuse/H3/H3"
 import SmallButton from "components/reuse/SmallButton/SmallButton"
-import Paragraph from "components/reuse/Paragraph/Paragraph"
 import TransitionCoverLink from "components/reuse/TransitionCoverLink/TransitionCoverLink"
 
 import {
@@ -24,6 +23,8 @@ import {
   Divider,
   CircleButton,
   TechnologyItem,
+  StyledContent,
+  ButtonWrapper,
 } from "genPages/Project/Project.style.js"
 
 //$slug: String! - wymagana zmienna
@@ -33,6 +34,8 @@ export const query = graphql`
       title
       description
       paragraph
+      livelink
+      githublink
       photos {
         originalId
         url
@@ -41,8 +44,10 @@ export const query = graphql`
         }
       }
       technologies {
-        id
-        technologyItem
+        technologyItem {
+          id
+          technologyItem
+        }
       }
     }
 
@@ -112,20 +117,40 @@ const ProjectLayout = ({ data }) => {
           </NavigationWrapper>
 
           <H2>{cmsData.title}</H2>
-          <Paragraph>{cmsData.paragraph}</Paragraph>
 
-          <H3>Technologie</H3>
+          <Divider />
+          <StyledContent
+            dangerouslySetInnerHTML={{ __html: cmsData.paragraph }}
+          />
+
+          <H3>Zastosowane technologie</H3>
           <TechnologiesWrapper>
             {cmsData.technologies.map(item => (
-              <TechnologyItem key={item.id}>
-                {item.technologyItem}
+              <TechnologyItem key={item.technologyItem.id}>
+                {item.technologyItem.technologyItem}
               </TechnologyItem>
             ))}
           </TechnologiesWrapper>
 
           <Divider />
 
-          <SmallButton secondary>Wersja live</SmallButton>
+          <ButtonWrapper>
+            <a
+              href={cmsData.livelink}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <SmallButton>Wersja live</SmallButton>
+            </a>
+
+            <a
+              href={cmsData.githublink}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <SmallButton secondary>Github</SmallButton>
+            </a>
+          </ButtonWrapper>
         </ContentGrid>
       </Sidebar>
 

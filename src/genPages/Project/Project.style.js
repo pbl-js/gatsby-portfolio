@@ -1,5 +1,5 @@
 import styled from "styled-components"
-import { fontSize } from "utils/typography"
+import { fontSize, fontWeight } from "utils/typography"
 import SmallButton from "components/reuse/SmallButton/SmallButton"
 import { scrollbar } from "utils/mixins"
 
@@ -44,6 +44,7 @@ export const TechnologiesWrapper = styled.ul`
   flex-wrap: wrap;
   list-style: none;
   color: ${({ theme }) => theme.color.greyTertiary};
+  margin-right: -10px;
 
   li {
     margin-bottom: 10px;
@@ -55,6 +56,8 @@ export const TechnologyItem = styled.li`
   padding: 5px 10px;
   background-color: ${({ theme }) => theme.color.greySecondary};
   font-size: ${fontSize.xxs};
+  flex-grow: 1;
+  text-align: center;
 `
 
 export const Divider = styled.span`
@@ -103,5 +106,33 @@ export const CircleButton = styled(SmallButton)`
     color: ${({ theme, secondary }) =>
       secondary ? theme.color.greyTertiary : theme.color.white};
     width: 50%;
+  }
+`
+
+export const ButtonWrapper = styled.div`
+  display: grid;
+  grid-gap: 20px;
+  grid-template-columns: 1fr 1fr;
+  a {
+    text-decoration: none;
+    outline: 0;
+  }
+`
+
+export const StyledContent = styled.div`
+  font-size: ${fontSize.xs};
+  line-height: 150%;
+  font-weight: ${fontWeight.regular};
+  color: ${({ theme }) => theme.color.greyTertiary};
+  margin-bottom: -20px;
+
+  p {
+    margin-bottom: 20px;
+    text-align: justify;
+  }
+
+  h3 {
+    margin: 10px 0;
+    color: white;
   }
 `

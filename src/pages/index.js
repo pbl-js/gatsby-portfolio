@@ -69,10 +69,6 @@ export const query = graphql`
               ...GatsbyDatoCmsFluid
             }
           }
-          technologies {
-            id
-            technologyItem
-          }
           description
         }
       }
