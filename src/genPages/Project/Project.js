@@ -55,6 +55,7 @@ export const query = graphql`
       edges {
         node {
           title
+          position
         }
       }
     }
@@ -63,9 +64,15 @@ export const query = graphql`
 
 const ProjectLayout = ({ data }) => {
   const cmsData = data.datoCmsProject
-  const links = data.allDatoCmsProject.edges.map(({ node: { title } }) => {
+  let orderedProjects = data.allDatoCmsProject.edges
+  let links
+
+  orderedProjects.sort((a, b) => a.node.position - b.node.position)
+
+  links = orderedProjects.map(({ node: { title } }) => {
     return slugify(title, { lower: true })
   })
+
   const actualLink = links.indexOf(slugify(cmsData.title, { lower: true }))
 
   const canNext = actualLink === links.length - 1 ? true : false

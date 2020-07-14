@@ -1,10 +1,25 @@
 import styled from "styled-components"
 import { fontSize, fontWeight } from "utils/typography"
 import { Menu } from "@styled-icons/entypo/Menu"
+import { CloseOutline } from "@styled-icons/evaicons-outline/CloseOutline"
 
 export const StyledNav = styled.nav``
 
 export const Hamburger = styled(Menu)`
+  position: absolute;
+  z-index: 10;
+  top: 20px;
+  right: 20px;
+  width: 70px;
+  display: none;
+  cursor: pointer;
+
+  @media ${({ theme }) => theme.device.tablet} {
+    display: block;
+  }
+`
+
+export const Close = styled(CloseOutline)`
   position: absolute;
   z-index: 10;
   top: 20px;
@@ -70,6 +85,7 @@ export const DesktopNav = styled.ul`
 
 export const MobileNav = styled.ul`
   display: flex;
+  transform: translateX(-101%);
   flex-direction: column;
   align-items: center;
   justify-content: center;

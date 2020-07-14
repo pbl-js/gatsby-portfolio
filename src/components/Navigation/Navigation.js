@@ -5,6 +5,7 @@ import { gsap } from "gsap"
 import {
   StyledNav,
   Hamburger,
+  Close,
   DesktopNav,
   MobileNav,
 } from "components/Navigation/Navigation.styles.js"
@@ -121,7 +122,7 @@ const Navigation = () => {
       </DesktopNav>
 
       <MobileNav ref={mobileMenuWrapper}>
-        <Hamburger onClick={toggleMenu} />
+        <Close onClick={toggleMenu} />
 
         <li>
           <ScrollLink

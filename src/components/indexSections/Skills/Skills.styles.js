@@ -49,11 +49,6 @@ export const StyledSection = styled.section`
   ${({ theme, primary }) => (primary ? theme.color.orange : "transparent")};
   border-left: 5px solid
     ${({ theme, primary }) => (primary ? "transparent" : theme.color.orange)};
-
-  :hover {
-    transform: scale(1.05);
-    transition: 0.2s;
-  }
 `
 
 export const StyledUl = styled.ul`
