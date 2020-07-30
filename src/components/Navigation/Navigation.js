@@ -126,6 +126,7 @@ const Navigation = () => {
 
         <li>
           <ScrollLink
+            onClick={toggleMenu}
             to="aboutSection"
             smooth={true}
             duration={500}
@@ -137,6 +138,7 @@ const Navigation = () => {
 
         <li>
           <ScrollLink
+            onClick={toggleMenu}
             to="skillsSection"
             smooth={true}
             duration={500}
@@ -148,6 +150,7 @@ const Navigation = () => {
 
         <li>
           <ScrollLink
+            onClick={toggleMenu}
             to="projectsSection"
             smooth={true}
             duration={500}
@@ -159,6 +162,7 @@ const Navigation = () => {
 
         <li>
           <ScrollLink
+            onClick={toggleMenu}
             to="contactSection"
             smooth={true}
             duration={500}
